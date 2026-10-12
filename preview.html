@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101016">
+  <meta name="description" content="مجتمع الفنون، منصة عربية للرسم والتعلم والتحديات الفنية.">
+
+  <title>مجتمع الفنون | عالمك الإبداعي</title>
+
+  <style>
+    :root {
+      --bg: #101016;
+      --panel: #191922;
+      --panel-light: #22222e;
+      --text: #f5f3ff;
+      --muted: #a5a3b8;
+      --primary: #a78bfa;
+      --secondary: #6ee7d8;
+      --border: #30303e;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Tahoma, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1200px, 94%);
+      margin: auto;
+    }
+
+    /* الشريط العلوي */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16, 16, 22, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(15px);
+    }
+
+    .navbar {
+      min-height: 75px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 22px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #a78bfa, #6ee7d8);
+      color: #15151c;
+      font-size: 24px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--muted);
+      transition: 0.2s;
+      white-space: nowrap;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--primary);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--text);
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      border-color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #171321;
+      border-color: var(--primary);
+      font-weight: bold;
+    }
+
+    .btn-primary:hover {
+      background: #bba5ff;
+    }
+
+    /* المقدمة */
+
+    .hero {
+      margin-top: 28px;
+      min-height: 340px;
+      padding: 42px;
+      border: 1px solid #39304e;
+      border-radius: 28px;
+      background:
+        radial-gradient(ellipse at 10% 15%, #514080 0, transparent 45%),
+        radial-gradient(ellipse at 90% 90%, #174e4b 0, transparent 38%),
+        #1b1927;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      color: var(--secondary);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 49px);
+      line-height: 1.45;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      color: #cbc8db;
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-art {
+      font-size: clamp(90px, 15vw, 170px);
+      filter: drop-shadow(0 15px 35px #0008);
+      transform: rotate(-8deg);
+    }
+
+    /* الإحصائيات */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 22px 0 35px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 18px;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--primary);
+      font-size: 25px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* العناوين */
+
+    .section {
+      margin: 38px 0;
+      scroll-margin-top: 100px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .section-heading h2 {
+      font-size: 23px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .text-link {
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    /* البحث */
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      min-width: 0;
+      flex: 1;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      padding: 13px 16px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+    }
+
+    /* التصنيفات */
+
+    .categories {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .category {
+      background: var(--panel);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 10px 17px;
+      border-radius: 25px;
+    }
+
+    .category:hover,
+    .category.selected {
+      background: #302746;
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    /* الرسومات */
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .art-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .art-card:hover {
+      transform: translateY(-4px);
+      border-color: #605080;
+    }
+
+    .art-image {
+      height: 220px;
+      display: grid;
+      place-items: center;
+      font-size: 88px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .art-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, #0003, transparent 65%);
+      pointer-events: none;
+    }
+
+    .art-one {
+      background: linear-gradient(145deg, #5d347a, #f3a6c8 55%, #f8d5a7);
+    }
+
+    .art-two {
+      background: linear-gradient(145deg, #122b4c, #307a91, #b1e0d5);
+    }
+
+    .art-three {
+      background: linear-gradient(145deg, #d18b49, #7c3c36, #301e36);
+    }
+
+    .art-four {
+      background: linear-gradient(145deg, #f5c8db, #b68ee3, #534c9e);
+    }
+
+    .art-five {
+      background: linear-gradient(145deg, #163b36, #4c9279, #c2d7a5);
+    }
+
+    .art-six {
+      background: linear-gradient(145deg, #25243c, #6555a4, #edb7a5);
+    }
+
+    .art-info {
+      padding: 15px;
+    }
+
+    .art-info h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    .artist {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .art-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+    }
+
+    .like-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      padding: 5px;
+    }
+
+    .like-btn.liked {
+      color: #ff7da5;
+    }
+
+    .art-tag {
+      font-size: 12px;
+      background: #302746;
+      color: #d6c6ff;
+      padding: 4px 9px;
+      border-radius: 8px;
+    }
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      color: var(--muted);
+      padding: 35px;
+      grid-column: 1 / -1;
+    }
+
+    /* التحديات */
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .challenge {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      display: flex;
+      align-items: center;
+      gap: 17px;
+    }
+
+    .challenge-icon {
+      min-width: 65px;
+      height: 65px;
+      border-radius: 17px;
+      display: grid;
+      place-items: center;
+      background: #302746;
+      font-size: 32px;
+    }
+
+    .challenge h3 {
+      margin-bottom: 5px;
+    }
+
+    .challenge p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    /* تذييل الموقع */
+
+    footer {
+      margin-top: 60px;
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer-logo {
+      color: var(--text);
+      font-size: 19px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    /* التجاوب مع أحجام الشاشات */
+
+    @media (max-width: 900px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding: 5px 0;
+      }
+
+      .hero {
+        padding: 28px;
+      }
+
+      .hero-art {
+        font-size: 100px;
+      }
+
+      .art-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .logo {
+        font-size: 18px;
+      }
+
+      .header-actions .btn {
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 23px;
+        min-height: auto;
+      }
+
+      .hero-art {
+        display: none;
+      }
+
+      .stats {
+        gap: 8px;
+      }
+
+      .stat {
+        padding: 12px 5px;
+      }
+
+      .stat strong {
+        font-size: 20px;
+      }
+
+      .stat span {
+        font-size: 11px;
+      }
+
+      .art-grid,
+      .challenge-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-image {
+        height: 240px;
+      }
+
+      .section-heading h2 {
+        font-size: 19px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container navbar">
+
+      <a class="logo" href="#الرئيسية">
+        <span class="logo-icon">🎨</span>
+        <span>مجتمع الفنون</span>
+      </a>
+
+      <nav>
+        <a class="active" href="#الرئيسية">الرئيسية</a>
+        <a href="#الرسومات">الرسومات</a>
+        <a href="#التصنيفات">التصنيفات</a>
+        <a href="#التحديات">التحديات</a>
+        <a href="#عن-الموقع">عن الموقع</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn" onclick="showMessage('سيتم إضافة تسجيل الدخول في المرحلة القادمة.')">
+          دخول
+        </button>
+
+        <button class="btn btn-primary"
+          onclick="showMessage('سيتم تفعيل إنشاء الحسابات عند ربط قاعدة البيانات.')">
+          انضم إلينا
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- المقدمة -->
+
+    <section class="hero" id="الرئيسية">
+
+      <div class="hero-content">
+        <div class="eyebrow">✦ عالم يجمع المبدعين</div>
+
+        <h1>
+          حوّل خيالك إلى <span>فن</span><br>
+          وشارك إبداعك مع العالم
+        </h1>
+
+        <p>
+          اكتشف رسومات مذهلة، وتعلّم مهارات جديدة،
+          وتواصل مع الفنانين، وشارك في تحديات فنية
+          تناسب مستواك، من أول خطوة حتى الاحتراف.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#الرسومات">اكتشف الرسومات</a>
+          <a class="btn" href="#التحديات">استكشف التحديات</a>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-hidden="true">🖌️</div>
+
+    </section>
+
+    <!-- الإحصائيات التجريبية -->
+
+    <section class="stats">
+      <div class="stat">
+        <strong>🎨</strong>
+        <span>مجتمع لكل الفنانين</span>
+      </div>
+
+      <div class="stat">
+        <strong>📚</strong>
+        <span>التعلم وتبادل الخبرات</span>
+      </div>
+
+      <div class="stat">
+        <strong>🏆</strong>
+        <span>تحديات ومنافسات فنية</span>
+      </div>
+    </section>
+
+    <!-- التصنيفات -->
+
+    <section class="section" id="التصنيفات">
+
+      <div class="section-heading">
+        <div>
+          <h2>استكشف عالم الفن</h2>
+          <p>اختر النوع الفني الذي تحبه</p>
+        </div>
+      </div>
+
+      <div class="categories">
+        <button class="category selected" data-category="الكل">الكل</button>
+        <button class="category" data-category="أنمي">🎭 أنمي ومانجا</button>
+        <button class="category" data-category="واقعي">🖼️ رسم واقعي</button>
+        <button class="category" data-category="طبيعة">🌿 طبيعة ومناظر</button>
+        <button class="category" data-category="رقمي">💻 رسم رقمي</button>
+        <button class="category" data-category="خيالي">✨ فن خيالي</button>
+      </div>
+
+    </section>
+
+    <!-- معرض الرسومات -->
+
+    <section class="section" id="الرسومات">
+
+      <div class="section-heading">
+        <div>
+          <h2>اكتشف الرسومات</h2>
+          <p>نماذج تجريبية لشكل معرض الأعمال الفنية</p>
+        </div>
+
+        <a class="text-link" href="#الرسومات">استكشف ←</a>
+      </div>
+
+      <div class="search-box">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="ابحث عن رسمة أو فنان..."
+          aria-label="البحث عن الرسومات"
+        >
+        <button class="btn btn-primary" id="searchButton">بحث</button>
+      </div>
+
+      <div class="art-grid" id="artGrid">
+
+        <article class="art-card" data-category="أنمي" data-search="أنمي فتاة خيالية">
+          <div class="art-image art-one" role="img" aria-label="رسم تجريبي">
+            👩🏻‍🎨
+          </div>
+
+          <div class="art-info">
+            <h3>شخصية من عالم الخيال</h3>
+            <p class="artist">الفنان: رسام مبدع</p>
+
+            <div class="art-footer">
+              <span class="art-tag">أنمي</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="art-card" data-category="طبيعة" data-search="طبيعة بحر منظر">
+          <div class="art-image art-two" role="img" aria-label="رسم تجريبي">
+            🌊
+          </div>
+
+          <div class="art-info">
+            <h3>هدوء البحر</h3>
+            <p class="artist">الفنان: عاشق الطبيعة</p>
+
+            <div class="art-footer">
+              <span class="art-tag">طبيعة</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="art-card" data-category="خيالي" data-search="خيال تنين مغامرة">
+          <div class="art-image art-three" role="img" aria-label="رسم تجريبي">
+            🐉
+          </div>
+
+          <div class="art-info">
+            <h3>حارس المملكة</h3>
+            <p class="artist">الفنان: صانع الخيال</p>
+
+            <div class="art-footer">
+              <span class="art-tag">خيالي</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="art-card" data-category="واقعي" data-search="واقعي بورتريه وجه">
+          <div class="art-image art-four" role="img" aria-label="رسم تجريبي">
+            👤
+          </div>
+
+          <div class="art-info">
+            <h3>ملامح إنسان</h3>
+            <p class="artist">الفنان: محب التفاصيل</p>
+
+            <div class="art-footer">
+              <span class="art-tag">واقعي</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="art-card" data-category="رقمي" data-search="رقمي ألوان إبداع">
+          <div class="art-image art-five" role="img" aria-label="رسم تجريبي">
+            🎨
+          </div>
+
+          <div class="art-info">
+            <h3>لوحة الألوان</h3>
+            <p class="artist">الفنان: فنان رقمي</p>
+
+            <div class="art-footer">
+              <span class="art-tag">رقمي</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <article class="art-card" data-category="أنمي" data-search="أنمي بطل مغامرة">
+          <div class="art-image art-six" role="img" aria-label="رسم تجريبي">
+            ⚔️
+          </div>
+
+          <div class="art-info">
+            <h3>بداية المغامرة</h3>
+            <p class="artist">الفنان: رسام الأنمي</p>
+
+            <div class="art-footer">
+              <span class="art-tag">أنمي</span>
+              <button class="like-btn" aria-pressed="false">♡ إعجاب <span>0</span></button>
+            </div>
+          </div>
+        </article>
+
+        <div class="empty-state" id="emptyState">
+          لا توجد رسومات تطابق بحثك. جرّب كلمة أخرى.
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- التحديات -->
+
+    <section class="section" id="التحديات">
+
+      <div class="section-heading">
+        <div>
+          <h2>التحديات الفنية</h2>
+          <p>اختبر مهاراتك واستعد لمغامرة جديدة</p>
+        </div>
+      </div>
+
+      <div class="challenge-grid">
+
+        <article class="challenge">
+          <div class="challenge-icon">✏️</div>
+
+          <div>
+            <h3>تحدي رسم شخصية</h3>
+            <p>ارسم شخصية من خيالك بأسلوبك الخاص.</p>
+            <button class="btn"
+              onclick="showMessage('نظام التحديات والمشاركة سيُنفّذ في مرحلة لاحقة.')">
+              تفاصيل التحدي
+            </button>
+          </div>
+        </article>
+
+        <article class="challenge">
+          <div class="challenge-icon">🌄</div>
+
+          <div>
+            <h3>تحدي رسم المناظر</h3>
+            <p>حوّل مشهدًا طبيعيًا إلى لوحة فنية.</p>
+            <button class="btn"
+              onclick="showMessage('نظام التحديات والمشاركة سيُنفّذ في مرحلة لاحقة.')">
+              تفاصيل التحدي
+            </button>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- عن الموقع -->
+
+    <section class="section" id="عن-الموقع">
+      <div class="section-heading">
+        <div>
+          <h2>الفن يجمعنا</h2>
+          <p>
+            مجتمع الفنون مساحة للإبداع والتعلّم وتبادل الخبرات.
+            سواء كنت مبتدئًا أو محترفًا، مكانك بيننا.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-logo">🎨 مجتمع الفنون</div>
+      <p>مساحة عربية لكل من يحب الفن والإبداع.</p>
+      <p>© مجتمع الفنون — النسخة التجريبية الأولى</p>
+    </div>
+  </footer>
+
+  <script>
+    // البحث عن الرسومات
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const artCards = [...document.querySelectorAll(".art-card")];
+    const categories = [...document.querySelectorAll(".category")];
+    const emptyState = document.getElementById("emptyState");
+
+    let selectedCategory = "الكل";
+
+    function filterArt() {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      artCards.forEach(card => {
+        const title = card.innerText.toLowerCase();
+        const keywords = (card.dataset.search || "").toLowerCase();
+        const category = card.dataset.category;
+
+        const matchesSearch =
+          title.includes(query) || keywords.includes(query);
+
+        const matchesCategory =
+          selectedCategory === "الكل" ||
+          category === selectedCategory;
+
+        const visible = matchesSearch && matchesCategory;
+
+        card.style.display = visible ? "" : "none";
+
+        if (visible) visibleCount++;
+      });
+
+      emptyState.style.display =
+        visibleCount === 0 ? "block" : "none";
+    }
+
+    searchInput.addEventListener("input", filterArt);
+    searchButton.addEventListener("click", filterArt);
+
+    categories.forEach(button => {
+      button.addEventListener("click", () => {
+        selectedCategory = button.dataset.category;
+
+        categories.forEach(item => {
+          item.classList.remove("selected");
+        });
+
+        button.classList.add("selected");
+        filterArt();
+      });
+    });
+
+    // أزرار الإعجاب التجريبية
+    document.querySelectorAll(".like-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const count = button.querySelector("span");
+        const liked = button.classList.toggle("liked");
+
+        button.setAttribute("aria-pressed", String(liked));
+        count.textContent = Number(count.textContent) + (liked ? 1 : -1);
+
+        button.firstChild.textContent = liked
+          ? "♥ إعجاب "
+          : "♡ إعجاب ";
+      });
+    });
+
+    // رسائل توضيحية للمميزات غير المفعلة بعد
+    function showMessage(message) {
+      alert(message);
+    }
+  </script>
+
+</body>
+</html>
