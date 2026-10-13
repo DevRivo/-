@@ -1225,3 +1225,24 @@ footer {
     transition-duration: 0.01ms !important;
   }
 }
+/* توسيط محتوى الصفحات */
+main {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* توسيط العناوين والنصوص */
+main h1,
+main h2,
+main > p {
+    text-align: center;
+}
+
+/* توسيط بطاقات الرسومات */
+.drawings-grid {
+    width: 100%;
+    margin-inline: auto;
+}
