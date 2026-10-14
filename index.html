@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مجتمع الفنون</title>
-    <!-- استيراد خط Cairo العربي -->
+    <!-- خط Cairo العربي -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* المتغيرات العامة للهوية البصرية */
         :root {
             --primary: #7c3aed;
             --primary-dark: #6d28d9;
@@ -52,7 +51,6 @@
             width: 100%;
         }
 
-        /* رأس الموقع المشترك */
         header {
             background-color: var(--surface);
             border-bottom: 1px solid var(--border);
@@ -80,7 +78,7 @@
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             list-style: none;
             align-items: center;
         }
@@ -101,7 +99,7 @@
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .icon-btn {
@@ -136,7 +134,6 @@
             background-color: var(--primary-dark);
         }
 
-        /* محتوى الأقسام (SPA Views) */
         main {
             flex: 1;
             padding: 40px 0;
@@ -150,7 +147,6 @@
             display: block;
         }
 
-        /* تنسيقات مشتركة للبطاقات والنماذج */
         h1 {
             font-size: 2rem;
             margin-bottom: 24px;
@@ -177,7 +173,6 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        /* أدوات البحث والفلترة */
         .filter-bar {
             display: flex;
             gap: 15px;
@@ -185,7 +180,7 @@
             flex-wrap: wrap;
         }
 
-        .filter-bar input, .filter-bar select {
+        .filter-bar input, .filter-bar select, .form-control {
             padding: 10px 16px;
             border-radius: var(--radius);
             border: 1px solid var(--border);
@@ -193,6 +188,7 @@
             color: var(--text);
             font-size: 0.95rem;
             outline: none;
+            width: 100%;
         }
 
         .filter-bar input {
@@ -202,7 +198,7 @@
 
         .filter-buttons {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             margin-bottom: 20px;
         }
@@ -224,15 +220,12 @@
             border-color: var(--primary);
         }
 
-        .empty-message {
+        .empty-state {
             text-align: center;
+            padding: 60px 20px;
             color: var(--text-muted);
-            padding: 40px;
-            font-size: 1.1rem;
-            display: none;
         }
 
-        /* تذييل الموقع */
         footer {
             background-color: var(--surface);
             border-top: 1px solid var(--border);
@@ -243,7 +236,6 @@
             margin-top: auto;
         }
 
-        /* الاستجابة للهاتف */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -253,7 +245,7 @@
 </head>
 <body>
 
-    <!-- رأس الموقع -->
+    <!-- رأس الموقع المشترك -->
     <header>
         <div class="container nav-container">
             <div class="logo" onclick="switchView('home')">
@@ -265,6 +257,7 @@
                 <li><a onclick="switchView('artists')" data-target="artists">الفنانون</a></li>
                 <li><a onclick="switchView('communities')" data-target="communities">المجتمعات</a></li>
                 <li><a onclick="switchView('challenges')" data-target="challenges">التحديات</a></li>
+                <li><a onclick="switchView('ai-assistant')" data-target="ai-assistant">المساعد الذكي</a></li>
             </ul>
             <div class="header-actions">
                 <button class="icon-btn" onclick="switchView('notifications')" title="الإشعارات">🔔</button>
@@ -277,119 +270,224 @@
     <!-- محتوى الأقسام -->
     <main class="container">
 
-        <!-- 1. الصفحة الرئيسية -->
+        <!-- 1. الرئيسية -->
         <section id="home" class="section-view active">
-            <div style="text-align: center; padding: 60px 0;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 20px;">منصة تجمع الفنانين ومحبي الرسم</h1>
+            <div style="text-align: center; padding: 50px 0;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 20px;">مرحباً بك في مجتمع الفنون</h1>
                 <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 700px; margin: 0 auto 30px;">
-                    استكشف أعمالاً فنية ملهمة، شارك في تحديات الرسم، وتفاعل مع مجتمع عربي متكامل يشاركك شغف الفن والإبداع.
+                    منصة عربية متكاملة تجمع الفنانين ومحبي الرسم لمشاركة الأعمال، تبادل الخبرات، والتفاعل في بيئة فنية إبداعية.
                 </p>
-                <div style="display: flex; gap: 15px; justify-content: center;">
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
                     <button class="btn-primary" onclick="switchView('drawings')">استكشف الرسومات</button>
-                    <button class="filter-btn" onclick="switchView('challenges')" style="padding: 10px 20px;">الانضمام للتحديات</button>
+                    <button class="filter-btn" onclick="switchView('upload-drawing')" style="padding: 10px 20px;">أضف رسمة</button>
+                    <button class="filter-btn" onclick="switchView('ai-assistant')" style="padding: 10px 20px;">مساعد الذكاء الاصطناعي</button>
+                </div>
+            </div>
+
+            <!-- شرح كيفية استخدام الموقع -->
+            <div style="margin-top: 40px;">
+                <h2 style="text-align: center; margin-bottom: 20px;">كيف تستخدم المنصة؟</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <h3>1. استكشف وشارك</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">استعرض رسومات الأعضاء أو انشر أعمالك الخاصة عبر نموذج الرفع المباشر.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. انضم للمجتمعات</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">شارك في النقاشات الفنية واطرح تساؤلاتك مع زملائك الفنانين.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. تطور مع المساعد</h3>
+                        <p style="color: var(--text-muted); margin-top: 10px;">استخدم مساعد الذكاء الاصطناعي لاقتراح تمارين وتطوير مهاراتك.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 2. الرسومات -->
         <section id="drawings" class="section-view">
-            <h1>اكتشف الرسومات</h1>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <h1>اكتشف الرسومات</h1>
+                <button class="btn-primary" onclick="switchView('upload-drawing')">➕ أضف رسمة جديدة</button>
+            </div>
+            
             <div class="filter-bar">
-                <input type="text" id="searchInput" placeholder="ابحث باسم الرسمة أو الفنان..." oninput="filterArtworks()">
+                <input type="text" id="searchInput" placeholder="ابحث باسم الرسمة أو اسم الفنان..." oninput="filterArtworks()">
                 <select id="sortSelect" onchange="filterArtworks()">
-                    <option value="default">الترتيب الافتراضي</option>
-                    <option value="title-asc">العنوان (أ-ي)</option>
+                    <option value="latest">الأحدث</option>
+                    <option value="popular">الأكثر إعجاباً</option>
                 </select>
             </div>
+
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="setCategory('all', this)">الكل</button>
-                <button class="filter-btn" onclick="setCategory('pencil', this)">رسم بالقلم</button>
+                <button class="filter-btn" onclick="setCategory('pencil', this)">رسم بالقلم الرصاص</button>
+                <button class="filter-btn" onclick="setCategory('portrait', this)">بورتريه ووجوه</button>
+                <button class="filter-btn" onclick="setCategory('anime', this)">أنمي ومانجا</button>
+                <button class="filter-btn" onclick="setCategory('digital', this)">رسم رقمي</button>
                 <button class="filter-btn" onclick="setCategory('watercolor', this)">ألوان مائية</button>
                 <button class="filter-btn" onclick="setCategory('oil', this)">ألوان زيتية</button>
-                <button class="filter-btn" onclick="setCategory('digital', this)">رسم رقمي</button>
+                <button class="filter-btn" onclick="setCategory('calligraphy', this)">خط عربي</button>
+                <button class="filter-btn" onclick="setCategory('other', this)">فنون أخرى</button>
             </div>
+
             <div class="card-grid" id="artGrid">
-                <!-- بطاقات الرسومات التجريبية توضع هنا ديناميكياً أو برمجياً عند توفر البيانات -->
+                <!-- الرسومات ستعرض هنا ديناميكياً -->
             </div>
-            <div id="emptyMessage" class="empty-message">عذراً، لم يتم العثور على أي رسومات تطابق بحثك.</div>
+            
+            <div id="emptyArtMessage" class="empty-state" style="display: none;">
+                <p>لا توجد رسومات منشورة حالياً. كن أول من يشارك عمله الفني!</p>
+            </div>
+        </section>
+
+        <!-- إضافة رسمة جديدة -->
+        <section id="upload-drawing" class="section-view">
+            <h1>نشر رسمة جديدة</h1>
+            <div class="card" style="max-width: 600px; margin: 0 auto;">
+                <form onsubmit="handleUploadDrawing(event)">
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">عنوان الرسمة</label>
+                        <input type="text" id="artTitle" class="form-control" required placeholder="مثال: بورتريه بالفحم">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">اختر الصورة</label>
+                        <input type="file" id="artFile" class="form-control" accept="image/*" required>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">الفئة الفنية</label>
+                        <select id="artCategory" class="form-control">
+                            <option value="pencil">رسم بالقلم الرصاص</option>
+                            <option value="portrait">بورتريه ووجوه</option>
+                            <option value="anime">أنمي ومانجا</option>
+                            <option value="digital">رسم رقمي</option>
+                            <option value="watercolor">ألوان مائية</option>
+                            <option value="oil">ألوان زيتية</option>
+                            <option value="calligraphy">خط عربي</option>
+                            <option value="other">فنون أخرى</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">مستوى المهارة</label>
+                        <select id="artLevel" class="form-control">
+                            <option value="beginner">مبتدئ</option>
+                            <option value="intermediate">متوسط</option>
+                            <option value="pro">محترف</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 5px; font-weight: 600;">وصف العمل</label>
+                        <textarea id="artDesc" class="form-control" rows="3" placeholder="اكتب نبذة قصيرة عن الأدوات أو طريقة الرسم..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="width: 100%;">نشر العمل</button>
+                </form>
+            </div>
         </section>
 
         <!-- 3. الفنانون -->
         <section id="artists" class="section-view">
             <h1>دليل الفنانين</h1>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">تعرف على أعضاء المجتمع الفني.</p>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>قريباً</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">سيتم عرض الفنانين الحقيقيين عند انضمامهم للمنصة وبدء نشر أعمالهم.</p>
-                </div>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">تعرف على الفنانين الأعضاء في المجتمع.</p>
+            <div class="card-grid" id="artistsGrid">
+                <!-- عرض الفنانين المسجلين حقيقة -->
+            </div>
+            <div id="emptyArtistsMessage" class="empty-state">
+                <p>لم ينضم أي فنان بعد أو لم يسمح بظهور ملفه الشخصي.</p>
             </div>
         </section>
 
         <!-- 4. المجتمعات الفنية -->
         <section id="communities" class="section-view">
-            <h1>المجتمعات الفنية</h1>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">مساحات للنقاش وتبادل الخبرات بين المهتمين بمختلف المدارس الفنية.</p>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>مجتمع المبتدئين في الرسم</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">مساحة لتبادل النصائح الأساسية وتطوير المهارات الأولى.</p>
-                </div>
-                <div class="card">
-                    <h3>محترفو الرسم الرقمي</h3>
-                    <p style="color: var(--text-muted); margin-top: 10px;">نقاشات حول التقنيات والأدوات الرقمية الحديثة.</p>
-                </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h1>المجتمعات الفنية</h1>
+                <button class="btn-primary" onclick="openCreateCommunityModal()">+ أنشئ مجتمعاً جديداً</button>
+            </div>
+            <div class="card-grid" id="communitiesGrid">
+                <!-- المجتمعات المنشأة -->
+            </div>
+            <div id="emptyCommMessage" class="empty-state">
+                <p>لا توجد مجتمعات نشطة حالياً. ابدأ بإنشاء أول مجتمع فني!</p>
             </div>
         </section>
 
         <!-- 5. التحديات والألعاب -->
         <section id="challenges" class="section-view">
             <h1>التحديات الفنية</h1>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">شارك في التحديات الأسبوعية لتطوير مهاراتك الفنية.</p>
-            <div class="card">
-                <h3>تحدي رسم البورتريه خلال ساعة</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">المدة: 7 أيام | نظام مكافآت تقديرية داخل الموقع.</p>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">تحديات رسم تفاعلية لتطوير المهارات.</p>
+            <div class="empty-state">
+                <p>لا توجد تحديات نشطة حالياً. سيتم إعلان التحديات رسمياً من قبل إدارة المنصة.</p>
             </div>
         </section>
 
         <!-- 6. الملف الشخصي -->
         <section id="profile" class="section-view">
             <h1>الملف الشخصي</h1>
-            <div class="card">
-                <h3>حساب المستخدم</h3>
-                <p style="color: var(--text-muted); margin-top: 10px;">قم بتسجيل الدخول لعرض أعمالك الشخصية، مستواك الفني، ومتابعاتك.</p>
-                <button class="btn-primary" style="margin-top: 15px;" onclick="switchView('login')">تسجيل الدخول</button>
+            <div class="card" id="profileCard">
+                <!-- يعرض بيانات المستخدم المسجل حالياً -->
             </div>
         </section>
 
         <!-- 7. الإعدادات -->
         <section id="settings" class="section-view">
             <h1>الإعدادات والتفضيلات</h1>
-            <div class="card" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="card" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                 <div>
                     <h3>الوضع الداكن</h3>
-                    <p style="color: var(--text-muted); font-size: 0.9rem;">التبديل بين الوضع الفاتح والداكن.</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">التبديل بين المظهر الفاتح والداكن.</p>
                 </div>
                 <button class="btn-primary" onclick="toggleTheme()">تغيير المظهر</button>
+            </div>
+            <div class="card">
+                <h3>إدارة الجلسة</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">تسجيل الخروج من الحساب الحالي.</p>
+                <button class="btn-primary" style="background-color: #ef4444;" onclick="handleLogout()">تسجيل الخروج</button>
             </div>
         </section>
 
         <!-- 8. تسجيل الدخول -->
         <section id="login" class="section-view">
-            <div style="max-width: 400px; margin: 40px auto;">
+            <div style="max-width: 400px; margin: 20px auto;">
                 <h1>تسجيل الدخول</h1>
                 <div class="card">
                     <form onsubmit="handleLogin(event)">
                         <div style="margin-bottom: 15px;">
                             <label style="display: block; margin-bottom: 5px; font-weight: 600;">البريد الإلكتروني</label>
-                            <input type="email5" id="loginEmail" required style="width: 100%; padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); color: var(--text);">
+                            <input type="email" id="loginEmail" class="form-control" required>
                         </div>
                         <div style="margin-bottom: 20px;">
                             <label style="display: block; margin-bottom: 5px; font-weight: 600;">كلمة المرور</label>
-                            <input type="password" id="loginPass" required style="width: 100%; padding: 10px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--surface); color: var(--text);">
+                            <input type="password" id="loginPass" class="form-control" required>
                         </div>
                         <button type="submit" class="btn-primary" style="width: 100%;">دخول</button>
-                        <p id="loginMessage" style="margin-top: 15px; text-align: center; font-size: 0.9rem; color: var(--primary);"></p>
+                        <p style="margin-top: 15px; text-align: center; font-size: 0.9rem;">
+                            ليس لديك حساب؟ <a onclick="switchView('register')" style="color: var(--primary); cursor: pointer; font-weight: 600;">أنشئ حساباً جديداً</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- إنشاء حساب -->
+        <section id="register" class="section-view">
+            <div style="max-width: 400px; margin: 20px auto;">
+                <h1>إنشاء حساب جديد</h1>
+                <div class="card">
+                    <form onsubmit="handleRegister(event)">
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">الاسم الظاهر</label>
+                            <input type="text" id="regName" class="form-control" required>
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">البريد الإلكتروني</label>
+                            <input type="email" id="regEmail" class="form-control" required>
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <label style="display: block; margin-bottom: 5px; font-weight: 600;">كلمة المرور</label>
+                            <input type="password" id="regPass" class="form-control" required minlength="6">
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%;">تسجيل الحساب</button>
+                        <p style="margin-top: 15px; text-align: center; font-size: 0.9rem;">
+                            لديك حساب بالفعل؟ <a onclick="switchView('login')" style="color: var(--primary); cursor: pointer; font-weight: 600;">تسجيل الدخول</a>
+                        </p>
                     </form>
                 </div>
             </div>
@@ -398,16 +496,30 @@
         <!-- 9. الإشعارات -->
         <section id="notifications" class="section-view">
             <h1>الإشعارات</h1>
-            <div class="card">
-                <p style="color: var(--text-muted);">لا توجد إشعارات جديدة حالياً.</p>
+            <div class="empty-state">
+                <p>لا توجد إشعارات جديدة حالياً.</p>
             </div>
         </section>
 
         <!-- 10. تفاصيل الرسمة -->
         <section id="drawing-details" class="section-view">
-            <h1>تفاصيل العمل الفني</h1>
-            <div class="card">
-                <p style="color: var(--text-muted);">اختر عملًا فنياً من قسم الرسومات لعرض تفاصيله الكاملة.</p>
+            <div id="drawingDetailsContainer">
+                <!-- تفاصيل العمل تظهر هنا -->
+            </div>
+        </section>
+
+        <!-- 11. مساعد الذكاء الاصطناعي -->
+        <section id="ai-assistant" class="section-view">
+            <h1>المساعد الفني الذكي</h1>
+            <div class="card" style="max-width: 700px; margin: 0 auto;">
+                <p style="color: var(--text-muted); margin-bottom: 15px;">اسأل مساعد الذكاء الاصطناعي عن تقنيات الرسم، اقتراح تمارين، أو نصائح لتطوير مهاراتك.</p>
+                <div id="aiChatBox" style="background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 15px; height: 300px; overflow-y: auto; margin-bottom: 15px;">
+                    <div style="margin-bottom: 10px; color: var(--primary);"><strong>المساعد:</strong> أهلاً بك! كيف يمكنني مساعدتك في تطوير مهاراتك الفنية اليوم؟</div>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" id="aiInput" class="form-control" placeholder="اكتب سؤالك هنا...">
+                    <button class="btn-primary" onclick="sendAiMessage()">إرسال</button>
+                </div>
             </div>
         </section>
 
@@ -420,19 +532,17 @@
         </div>
     </footer>
 
-    <!-- أكواد JavaScript -->
+    <!-- سكريبت إدارة الوظائف -->
     <script>
-        // التبديل بين أقسام الموقع (SPA Navigation)
+        // التنقل بين الأقسام (SPA)
         function switchView(viewId) {
             document.querySelectorAll('.section-view').forEach(section => {
                 section.classList.remove('active');
             });
-            const targetSection = document.getElementById(viewId);
-            if (targetSection) {
-                targetSection.classList.add('active');
+            const target = document.getElementById(viewId);
+            if (target) {
+                target.classList.add('active');
             }
-
-            // تحديث الروابط النشطة في القائمة
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('data-target') === viewId) {
@@ -440,50 +550,279 @@
                 }
             });
             window.scrollTo(0, 0);
+            if (viewId === 'drawings') renderArtworks();
+            if (viewId === 'artists') renderArtists();
+            if (viewId === 'communities') renderCommunities();
+            if (viewId === 'profile') renderProfile();
         }
 
-        // تبديل الوضع الفاتح والداكن مع الحفظ في LocalStorage
+        // المظهر الفاتح والداكن
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('art_community_theme', newTheme);
+            const current = document.documentElement.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('art_theme', next);
         }
 
-        // استعادة المظهر المحفوظ عند التحميل
         window.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('art_community_theme') || 'light';
+            const savedTheme = localStorage.getItem('art_theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
+            loadInitialData();
         });
 
-        // متغيرات الفلترة والبحث للرسومات
-        let currentCategory = 'all';
+        // قاعدة بيانات محلية (LocalStorage للتخزين المؤقت قبل ربط سحابي حقيقي)
+        let artworks = JSON.parse(localStorage.getItem('art_artworks')) || [];
+        let users = JSON.parse(localStorage.getItem('art_users')) || [];
+        let currentUser = JSON.parse(localStorage.getItem('art_current_user')) || null;
+        let communities = JSON.parse(localStorage.getItem('art_communities')) || [];
 
-        function setCategory(category, btn) {
-            currentCategory = category;
-            document.querySelectorAll('.filter-buttons .filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            filterArtworks();
+        // تسجيل الحساب
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const pass = document.getElementById('regPass').value;
+
+            if (users.some(u => u.email === email)) {
+                alert('البريد الإلكتروني مسجل مسبقاً.');
+                return;
+            }
+
+            const newUser = { id: Date.now(), name, email, pass, bio: 'فنان جديد في المنصة' };
+            users.push(newUser);
+            currentUser = newUser;
+            localStorage.setItem('art_users', JSON.stringify(users));
+            localStorage.setItem('art_current_user', JSON.stringify(currentUser));
+
+            alert('تم إنشاء الحساب وتسجيل الدخول بنجاح!');
+            switchView('profile');
         }
 
-        function filterArtworks() {
-            // دالة بحث وفلترة جاهزة للعمل مع بطاقات الرسومات المستقبلية
-            const query = document.getElementById('searchInput').value.toLowerCase();
+        // تسجيل الدخول
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const pass = document.getElementById('loginPass').value;
+
+            const user = users.find(u => u.email === email && u.pass === pass);
+            if (!user) {
+                alert('البريد الإلكتروني أو كلمة المرور غير صحيحة.');
+                return;
+            }
+
+            currentUser = user;
+            localStorage.setItem('art_current_user', JSON.stringify(currentUser));
+            alert('تم تسجيل الدخول بنجاح!');
+            switchView('profile');
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            localStorage.removeItem('art_current_user');
+            alert('تم تسجيل الخروج.');
+            switchView('home');
+        }
+
+        // إضافة رسمة
+        function handleUploadDrawing(e) {
+            e.preventDefault();
+            if (!currentUser) {
+                alert('يجب تسجيل الدخول أولاً لنشر رسمة.');
+                switchView('login');
+                return;
+            }
+
+            const title = document.getElementById('artTitle').value;
+            const category = document.getElementById('artCategory').value;
+            const level = document.getElementById('artLevel').value;
+            const desc = document.getElementById('artDesc').value;
+            const fileInput = document.getElementById('artFile');
+
+            const file = fileInput.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const newArt = {
+                    id: Date.now(),
+                    title,
+                    category,
+                    level,
+                    desc,
+                    image: event.target.result,
+                    artistName: currentUser.name,
+                    artistEmail: currentUser.email,
+                    likes: 0,
+                    comments: []
+                };
+                artworks.unshift(newArt);
+                localStorage.setItem('art_artworks', JSON.stringify(artworks));
+                alert('تم نشر العمل الفني بنجاح!');
+                switchView('drawings');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // عرض الرسومات
+        let currentCatFilter = 'all';
+        function setCategory(cat, btn) {
+            currentCatFilter = cat;
+            document.querySelectorAll('.filter-buttons .filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderArtworks();
+        }
+
+        function renderArtworks() {
             const grid = document.getElementById('artGrid');
-            const emptyMsg = document.getElementById('emptyMessage');
-            
-            // ملاحظة: لعدم وجود رسومات وهمية مسجلة مسبقاً، سيظهر رسالة التنبيه عند البحث أو تصفية الفراغ
-            if (grid.children.length === 0) {
+            const emptyMsg = document.getElementById('emptyArtMessage');
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const sortVal = document.getElementById('sortSelect').value;
+
+            let filtered = artworks.filter(art => {
+                const matchCat = currentCatFilter === 'all' || art.category === currentCatFilter;
+                const matchSearch = art.title.toLowerCase().includes(query) || art.artistName.toLowerCase().includes(query);
+                return matchCat && matchSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
                 emptyMsg.style.display = 'block';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            grid.innerHTML = filtered.map(art => `
+                <div class="card" onclick="viewDrawing(${art.id})" style="cursor: pointer;">
+                    <img src="${art.image}" alt="${art.title}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+                    <h3>${art.title}</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">الفنان: ${art.artistName}</p>
+                    <p style="color: var(--primary); font-size: 0.85rem; margin-top: 5px;">❤️ ${art.likes} إعجاب</p>
+                </div>
+            `).join('');
+        }
+
+        function viewDrawing(id) {
+            const art = artworks.find(a => a.id === id);
+            if (!art) return;
+
+            const container = document.getElementById('drawingDetailsContainer');
+            container.innerHTML = `
+                <button class="filter-btn" onclick="switchView('drawings')" style="margin-bottom: 20px;">← العودة للرسومات</button>
+                <div class="card" style="max-width: 800px; margin: 0 auto;">
+                    <img src="${art.image}" alt="${art.title}" style="width: 100%; max-height: 450px; object-fit: contain; border-radius: 8px; margin-bottom: 15px;">
+                    <h1>${art.title}</h1>
+                    <p style="color: var(--text-muted); margin-bottom: 10px;">الفنان: <strong>${art.artistName}</strong></p>
+                    <p style="margin-bottom: 15px;">${art.desc || 'لا يوجد وصف مضاف.'}</p>
+                    <button class="btn-primary" onclick="likeDrawing(${art.id})">❤️ إعجاب (${art.likes})</button>
+                </div>
+            `;
+            switchView('drawing-details');
+        }
+
+        function likeDrawing(id) {
+            const art = artworks.find(a => a.id === id);
+            if (art) {
+                art.likes++;
+                localStorage.setItem('art_artworks', JSON.stringify(artworks));
+                viewDrawing(id);
             }
         }
 
-        // التحقق التجريبي البسيط من نموذج تسجيل الدخول
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const msg = document.getElementById('loginMessage');
-            msg.textContent = `تم التحقق من البريد (${email}). ملاحظة: تتطلب المصادقة الحقيقية خادم وقاعدة بيانات خلفية (Backend).`;
+        // عرض الفنانين
+        function renderArtists() {
+            const grid = document.getElementById('artistsGrid');
+            const emptyMsg = document.getElementById('emptyArtistsMessage');
+
+            if (users.length === 0) {
+                grid.innerHTML = '';
+                emptyMsg.style.display = 'block';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            grid.innerHTML = users.map(u => `
+                <div class="card">
+                    <h3>🎨 ${u.name}</h3>
+                    <p style="color: var(--text-muted); margin-top: 8px;">${u.bio}</p>
+                </div>
+            `).join('');
+        }
+
+        // عرض المجتمعات
+        function renderCommunities() {
+            const grid = document.getElementById('communitiesGrid');
+            const emptyMsg = document.getElementById('emptyCommMessage');
+
+            if (communities.length === 0) {
+                grid.innerHTML = '';
+                emptyMsg.style.display = 'block';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            grid.innerHTML = communities.map(c => `
+                <div class="card">
+                    <h3>👥 ${c.name}</h3>
+                    <p style="color: var(--text-muted); margin-top: 8px;">${c.desc}</p>
+                </div>
+            `).join('');
+        }
+
+        function openCreateCommunityModal() {
+            if (!currentUser) {
+                alert('يجب تسجيل الدخول لإنشاء مجتمع.');
+                switchView('login');
+                return;
+            }
+            const name = prompt('أدخل اسم المجتمع الفني الجديد:');
+            if (!name) return;
+            const desc = prompt('أدخل وصفاً مختصراً للمجتمع:');
+            
+            communities.push({ id: Date.now(), name, desc, creator: currentUser.name });
+            localStorage.setItem('art_communities', JSON.stringify(communities));
+            renderCommunities();
+            alert('تم إنشاء المجتمع بنجاح!');
+        }
+
+        // الملف الشخصي
+        function renderProfile() {
+            const card = document.getElementById('profileCard');
+            if (!currentUser) {
+                card.innerHTML = `
+                    <p style="color: var(--text-muted);">يجب تسجيل الدخول لعرض ملفك الشخصي.</p>
+                    <button class="btn-primary" style="margin-top: 15px;" onclick="switchView('login')">تسجيل الدخول</button>
+                `;
+                return;
+            }
+
+            card.innerHTML = `
+                <h2>👤 ${currentUser.name}</h2>
+                <p style="color: var(--text-muted); margin: 10px 0;">البريد: ${currentUser.email}</p>
+                <p style="margin-bottom: 15px;">النبذة: ${currentUser.bio}</p>
+                <button class="btn-primary" style="background-color: #ef4444;" onclick="handleLogout()">تسجيل الخروج</button>
+            `;
+        }
+
+        // مساعد الذكاء الاصطناعي التجريبي
+        function sendAiMessage() {
+            const input = document.getElementById('aiInput');
+            const chatBox = document.getElementById('aiChatBox');
+            const text = input.value.trim();
+            if (!text) return;
+
+            chatBox.innerHTML += `<div style="margin-bottom: 10px; text-align: left;"><strong>أنت:</strong> ${text}</div>`;
+            input.value = '';
+
+            setTimeout(() => {
+                let reply = "نصيحة ممتازة لتطوير مهاراتك: احرص على دراسة النظرة التشريحية والظل والنور يومياً لمدة 20 دقيقة.";
+                if (text.includes('تمارين')) reply = "جرب رسم خطوط مستقيمة ودوائر بدون رفع يدك لمدة 10 دقائق لضبط التحكم بالقلم.";
+                chatBox.innerHTML += `<div style="margin-bottom: 10px; color: var(--primary);"><strong>المساعد:</strong> ${reply}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 600);
+        }
+
+        function loadInitialData() {
+            renderArtworks();
         }
     </script>
 </body>
