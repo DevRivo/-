@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الرسومات | مجتمع الفنون</title>
+
+    <meta name="description" content="اكتشف الرسومات وشارك أعمالك الفنية مع مجتمع الفنون.">
+
+    <!-- التصميم المشترك -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- تصميم صفحة الرسومات -->
+    <link rel="stylesheet" href="css/drawings.css">
+</head>
+
+<body>
+
+    <!-- رأس الموقع -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="site-logo">
+                مجتمع الفنون
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">الرئيسية</a>
+                <a href="drawings.html" class="active">الرسومات</a>
+                <a href="artists.html">الفنانون</a>
+                <a href="communities.html">المجتمعات</a>
+                <a href="challenges.html">التحديات والألعاب</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="notifications.html" class="notification-link">
+                    الإشعارات
+                </a>
+
+                <a href="login.html" class="btn btn-primary">
+                    حسابي
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- محتوى صفحة الرسومات -->
+    <main class="drawings-page">
+
+        <section class="drawings-intro container">
+
+            <span class="section-label">مساحة الإبداع</span>
+
+            <h1>اكتشف عالم الرسومات</h1>
+
+            <p>
+                شارك فنك مع الآخرين، واكتشف أساليب جديدة،
+                وتعلّم من الفنانين في مجتمع الفنون.
+            </p>
+
+            <a href="login.html" class="btn btn-primary">
+                انشر رسمتك
+            </a>
+
+        </section>
+
+        <!-- البحث والتصنيفات -->
+        <section class="drawings-explorer container">
+
+            <div class="drawings-toolbar">
+
+                <div class="drawings-search">
+                    <label for="drawingSearch">ابحث عن رسمة</label>
+
+                    <input
+                        type="search"
+                        id="drawingSearch"
+                        placeholder="اكتب اسم الرسمة أو نوع الفن..."
+                    >
+                </div>
+
+                <div class="drawings-filter">
+                    <label for="drawingCategory">نوع الفن</label>
+
+                    <select id="drawingCategory">
+                        <option value="all">كل أنواع الفن</option>
+                        <option value="traditional">الرسم التقليدي</option>
+                        <option value="digital">الرسم الرقمي</option>
+                        <option value="portrait">البورتريه</option>
+                        <option value="anime">الأنمي والمانجا</option>
+                        <option value="nature">الطبيعة</option>
+                        <option value="calligraphy">الخط العربي</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- التصنيفات -->
+            <div class="drawing-categories">
+
+                <button class="category-chip active" data-category="all">
+                    الكل
+                </button>
+
+                <button class="category-chip" data-category="traditional">
+                    الرسم التقليدي
+                </button>
+
+                <button class="category-chip" data-category="digital">
+                    الرسم الرقمي
+                </button>
+
+                <button class="category-chip" data-category="portrait">
+                    البورتريه
+                </button>
+
+                <button class="category-chip" data-category="anime">
+                    الأنمي والمانجا
+                </button>
+
+                <button class="category-chip" data-category="nature">
+                    الطبيعة
+                </button>
+
+                <button class="category-chip" data-category="calligraphy">
+                    الخط العربي
+                </button>
+
+            </div>
+
+            <!-- الرسومات المنشورة -->
+            <div class="drawings-results">
+
+                <div class="results-heading">
+                    <h2>الرسومات المنشورة</h2>
+                    <span id="resultsCount">0 رسمة</span>
+                </div>
+
+                <div class="drawings-grid" id="drawingsGrid">
+
+                    <!-- لا نعرض رسومات تجريبية أو حسابات وهمية -->
+
+                </div>
+
+                <!-- تظهر عند عدم وجود رسومات -->
+                <div class="drawings-empty" id="drawingsEmpty">
+
+                    <div class="empty-icon" aria-hidden="true">✎</div>
+
+                    <h3 id="emptyTitle">كن أول من يشارك فنه!</h3>
+
+                    <p id="emptyMessage">
+                        لا توجد رسومات منشورة هنا حتى الآن.
+                        ابدأ رحلتك الفنية وشارك أول رسمة لك.
+                    </p>
+
+                    <a href="login.html" class="btn btn-primary">
+                        سجّل الدخول وانشر رسمتك
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- دعوة للمشاركة -->
+        <section class="drawing-join container">
+
+            <div>
+                <h2>كل رسمة لها حكاية</h2>
+
+                <p>
+                    شارك أعمالك، واعرض خطوات رسمك بالفيديو،
+                    وساعد الآخرين على تطوير مهاراتهم الفنية.
+                </p>
+            </div>
+
+            <a href="login.html" class="btn btn-secondary">
+                ابدأ المشاركة
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- تذييل الموقع -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <p>
+                مجتمع يجمع الفنانين ويمنح الإبداع مساحة للنمو.
+            </p>
+
+            <a href="index.html" class="footer-home">
+                العودة إلى الرئيسية
+            </a>
+
+            <div class="footer-bottom">
+                <span>جميع الحقوق محفوظة</span>
+                <span class="site-credit">DevRivo</span>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- ملفات التفاعل -->
+    <script src="js/main.js" defer></script>
+    <script src="js/drawings.js" defer></script>
+
+</body>
+</html>
