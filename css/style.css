@@ -1248,3 +1248,23 @@ select:disabled {
         height: 21px;
     }
 }
+/* إصلاح الضغط على أزرار رأس الموقع */
+.site-header {
+    position: relative;
+    z-index: 1000;
+}
+
+.site-header a,
+.site-header button {
+    position: relative;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.site-header .main-nav a {
+    display: inline-flex;
+}
+
+.site-header .menu-toggle {
+    z-index: 1002;
+}
