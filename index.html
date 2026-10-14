@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="مجتمع الفنون، مساحة عربية للفنانين ومحبي الرسم لتبادل الأعمال والتعلم والمشاركة.">
+
+    <title>مجتمع الفنون | مساحة تجمع الفنانين</title>
+
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- التصميم المشترك لجميع الصفحات -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- تصميم الصفحة الرئيسية -->
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+    <!-- رأس الموقع المشترك -->
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="index.html" class="site-logo" aria-label="الصفحة الرئيسية">
+                <span class="logo-name">مجتمع الفنون</span>
+                <span class="logo-description">مساحتك للإبداع</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" id="mainNav" aria-label="القائمة الرئيسية">
+                <a href="index.html" class="nav-link active">الرئيسية</a>
+                <a href="drawings.html" class="nav-link">الرسومات</a>
+                <a href="artists.html" class="nav-link">الفنانون</a>
+                <a href="communities.html" class="nav-link">المجتمعات</a>
+                <a href="challenges.html" class="nav-link">التحديات والألعاب</a>
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="notifications.html"
+                    class="notification-link"
+                    aria-label="الإشعارات"
+                    title="الإشعارات"
+                >
+                    الإشعارات
+                </a>
+
+                <a href="login.html" class="account-link" id="accountLink">
+                    تسجيل الدخول
+                </a>
+
+                <a href="profile.html" class="profile-link" id="profileLink" hidden>
+                    ملفي الشخصي
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- مقدمة الصفحة -->
+        <section class="hero-section">
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <span class="section-label">
+                        مكان يجمع محبي الفن
+                    </span>
+
+                    <h1>
+                        فكرتك تستحق أن
+                        <span>تتحول إلى فن</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        مجتمع الفنون مساحة عربية للفنانين ومحبي الرسم،
+                        تقدر من خلالها تعرض أعمالك، وتتعلم أساليب جديدة،
+                        وتتبادل الخبرات والأفكار مع أشخاص يشاركونك حب الفن.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="drawings.html" class="button button-primary">
+                            اكتشف عالم الرسم
+                        </a>
+
+                        <a href="login.html" class="button button-secondary">
+                            انضم إلى المجتمع
+                        </a>
+
+                    </div>
+
+                    <p class="hero-note">
+                        سواء كنت مبتدئًا أو محترفًا، لكل فنان مساحة يعبّر فيها عن نفسه.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- التعريف بالموقع -->
+        <section class="about-section" id="about">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span class="section-label">عن المجتمع</span>
+
+                    <h2>الفن يجمعنا مهما اختلفت أساليبنا</h2>
+
+                    <p>
+                        هنا تقدر تتعلم، وتشارك إبداعك، وتتعرف على فنانين
+                        من اهتمامات ومدارس فنية مختلفة.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+                        <span class="feature-number">01</span>
+
+                        <h3>اعرض أعمالك</h3>
+
+                        <p>
+                            انشر رسوماتك وأعمالك الفنية، واكتب عنها،
+                            وأضف فيديو يوضح خطوات تنفيذها إذا رغبت.
+                        </p>
+
+                        <a href="drawings.html" class="text-link">
+                            استكشف الرسومات
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <span class="feature-number">02</span>
+
+                        <h3>تعلّم وطور مهارتك</h3>
+
+                        <p>
+                            اكتشف طرق الرسم والتظليل والمنظور والألوان،
+                            واستفد من تجارب الفنانين الآخرين.
+                        </p>
+
+                        <a href="siraj.html" class="text-link">
+                            تعرّف على سراج
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <span class="feature-number">03</span>
+
+                        <h3>كوّن صداقات فنية</h3>
+
+                        <p>
+                            تابع الفنانين، وتناقش معهم، وشارك في
+                            المجتمعات والأنشطة الفنية.
+                        </p>
+
+                        <a href="communities.html" class="text-link">
+                            استكشف المجتمعات
+                        </a>
+                    </article>
+
+
+                    <article class="feature-card">
+                        <span class="feature-number">04</span>
+
+                        <h3>اختبر قدراتك</h3>
+
+                        <p>
+                            شارك في تحديات الرسم والألعاب الفنية،
+                            وجرّب أساليب جديدة تساعدك على التطور.
+                        </p>
+
+                        <a href="challenges.html" class="text-link">
+                            اكتشف التحديات
+                        </a>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- أنواع الفنون -->
+        <section class="art-types-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span class="section-label">مساحة لكل أسلوب</span>
+
+                    <h2>أيًّا كان الفن الذي تحبه</h2>
+
+                    <p>
+                        مجتمع الفنون مفتوح لمختلف أنواع الرسم والفنون،
+                        وليس لنوع واحد فقط.
+                    </p>
+                </div>
+
+                <div class="art-types-grid">
+
+                    <a href="drawings.html?category=pencil" class="art-type-card">
+                        <h3>الرسم بالقلم الرصاص</h3>
+                        <p>الخطوط والتفاصيل والتظليل.</p>
+                    </a>
+
+                    <a href="drawings.html?category=portrait" class="art-type-card">
+                        <h3>الوجوه والبورتريه</h3>
+                        <p>ملامح الوجوه والتعبيرات.</p>
+                    </a>
+
+                    <a href="drawings.html?category=anime" class="art-type-card">
+                        <h3>الأنمي والمانجا</h3>
+                        <p>الشخصيات والأساليب اليابانية.</p>
+                    </a>
+
+                    <a href="drawings.html?category=digital" class="art-type-card">
+                        <h3>الفن الرقمي</h3>
+                        <p>الإبداع باستخدام الأدوات الرقمية.</p>
+                    </a>
+
+                    <a href="drawings.html?category=watercolor" class="art-type-card">
+                        <h3>الألوان المائية</h3>
+                        <p>الألوان والتدرجات واللمسات الناعمة.</p>
+                    </a>
+
+                    <a href="drawings.html?category=calligraphy" class="art-type-card">
+                        <h3>الخط العربي</h3>
+                        <p>جمال الحروف والتكوينات الخطية.</p>
+                    </a>
+
+                    <a href="drawings.html?category=nature" class="art-type-card">
+                        <h3>الطبيعة والمناظر</h3>
+                        <p>المناظر الطبيعية والتفاصيل المحيطة.</p>
+                    </a>
+
+                    <a href="drawings.html?category=other" class="art-type-card">
+                        <h3>أنواع فنية أخرى</h3>
+                        <p>مساحة مفتوحة لأفكارك وأساليبك الخاصة.</p>
+                    </a>
+
+                </div>
+
+                <div class="section-bottom-action">
+                    <a href="drawings.html" class="button button-secondary">
+                        انتقل إلى قسم الرسومات
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- طريقة عمل المجتمع -->
+        <section class="how-section">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span class="section-label">ابدأ رحلتك</span>
+
+                    <h2>رحلتك الفنية تبدأ من هنا</h2>
+
+                    <p>
+                        خطوات بسيطة تساعدك على الاستفادة من مجتمع الفنون.
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+
+                    <article class="step-card">
+                        <span class="step-number">١</span>
+                        <h3>أنشئ حسابك</h3>
+                        <p>
+                            أنشئ حسابًا لتتمكن من استخدام الميزات
+                            التي تحتاج إلى تسجيل الدخول.
+                        </p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">٢</span>
+                        <h3>اكتشف وشارك</h3>
+                        <p>
+                            تصفح الأعمال الفنية، وانشر رسوماتك،
+                            وتابع الفنانين الذين يعجبك أسلوبهم.
+                        </p>
+                    </article>
+
+                    <article class="step-card">
+                        <span class="step-number">٣</span>
+                        <h3>تعلّم وتطور</h3>
+                        <p>
+                            شارك في المجتمعات والتحديات،
+                            واستمر في تطوير مهاراتك الفنية.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- مساعد الرسم سراج -->
+        <section class="siraj-section">
+
+            <div class="section-container">
+
+                <div class="siraj-content">
+
+                    <span class="section-label">مساعدك الفني</span>
+
+                    <h2>قابل سراج، مساعدك في رحلة الرسم</h2>
+
+                    <p>
+                        سراج هو المساعد الفني المقترح داخل مجتمع الفنون.
+                        هدفه مساعدتك على فهم أساسيات الرسم والتظليل
+                        والمنظور والألوان، والتدرب على مهارات جديدة.
+                    </p>
+
+                    <a href="siraj.html" class="button button-primary">
+                        اكتشف سراج
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- قصة المجتمع -->
+        <section class="story-section" id="story">
+
+            <div class="section-container">
+
+                <div class="section-heading">
+                    <span class="section-label">قصتنا</span>
+
+                    <h2>مساحة للفن، وفرصة لكل موهبة</h2>
+                </div>
+
+                <div class="story-content">
+
+                    <p>
+                        جاءت فكرة مجتمع الفنون من الرغبة في إنشاء مساحة
+                        عربية تجمع الأشخاص الذين يحبون الرسم والفنون،
+                        سواء كانوا في بداية رحلتهم أو يمتلكون خبرة طويلة.
+                    </p>
+
+                    <p>
+                        نريد أن يكون المكان مناسبًا لعرض الأعمال،
+                        وتبادل المعرفة، والتعرف على أساليب مختلفة،
+                        وتشجيع الفنانين على الاستمرار في تطوير مهاراتهم.
+                    </p>
+
+                    <p>
+                        المجتمع ليس متجرًا للبيع والشراء؛ بل مساحة
+                        للمشاركة والتعلّم والتواصل والإبداع.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- الدعوة للمشاركة -->
+        <section class="join-section">
+
+            <div class="section-container">
+
+                <h2>جاهز تبدأ رحلتك الفنية؟</h2>
+
+                <p>
+                    اكتشف عالمًا من الأفكار والأساليب الفنية،
+                    واجعل أعمالك جزءًا من مجتمع يجمع محبي الفن.
+                </p>
+
+                <a href="login.html" class="button button-primary">
+                    انضم إلى مجتمع الفنون
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- تذييل الموقع المشترك -->
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <div class="footer-main">
+
+                <a href="index.html" class="footer-logo">
+                    مجتمع الفنون
+                </a>
+
+                <p>
+                    مساحة عربية تجمع الفنانين ومحبي الرسم
+                    للتعلم والمشاركة والإبداع.
+                </p>
+
+            </div>
+
+            <div class="footer-links">
+
+                <a href="drawings.html">الرسومات</a>
+                <a href="artists.html">الفنانون</a>
+                <a href="communities.html">المجتمعات</a>
+                <a href="challenges.html">التحديات والألعاب</a>
+                <a href="settings.html">الإعدادات</a>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                <p>
+                    جميع الحقوق محفوظة لمجتمع الفنون
+                </p>
+
+                <p class="creator-name">
+                    DevRivo
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- وظائف مشتركة لجميع الصفحات -->
+    <script src="js/main.js"></script>
+
+    <!-- وظائف الصفحة الرئيسية -->
+    <script src="js/home.js"></script>
+
+</body>
+</html>
