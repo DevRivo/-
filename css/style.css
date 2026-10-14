@@ -939,3 +939,312 @@ select:disabled {
         margin-right: auto;
     }
 }
+/* ===== رأس مجتمع الفنون ===== */
+
+.site-header {
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f1fa;
+    position: relative;
+    z-index: 1000;
+}
+
+.site-header .header-content {
+    width: 100%;
+    max-width: 1500px;
+    min-height: 96px;
+    margin: 0 auto;
+    padding: 16px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    direction: rtl;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+}
+
+/* الشعار */
+
+.site-header .site-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #1729a3;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.site-header .logo-icon {
+    width: 62px;
+    height: 62px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.site-header .logo-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.site-header .logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* روابط التنقل */
+
+.site-header .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.site-header .main-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 16px;
+    border-radius: 18px;
+
+    color: #111c72;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.site-header .main-nav a:hover {
+    color: #4054f5;
+    background: #f5f6ff;
+}
+
+.site-header .main-nav a.active {
+    color: #4054f5;
+    background: #f0f1ff;
+    font-weight: 800;
+}
+
+/* الإشعارات والحساب */
+
+.site-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.site-header .notification-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #1729a3;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.site-header .notification-icon {
+    width: 27px;
+    height: 27px;
+    position: relative;
+    display: inline-flex;
+}
+
+.site-header .notification-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.site-header .notification-dot {
+    position: absolute;
+    top: -3px;
+    right: -2px;
+
+    width: 10px;
+    height: 10px;
+    background: #f34b68;
+    border-radius: 50%;
+}
+
+/* زر حسابي */
+
+.site-header .account-button {
+    min-height: 54px;
+    padding: 12px 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background: #4054f5;
+    color: #ffffff;
+    text-decoration: none;
+
+    border: none;
+    border-radius: 18px;
+    font-size: 17px;
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.site-header .account-button:hover {
+    background: #293ce0;
+    transform: translateY(-1px);
+}
+
+.site-header .account-button svg {
+    width: 25px;
+    height: 25px;
+}
+
+/* زر القائمة */
+
+.site-header .menu-toggle {
+    display: none;
+    padding: 8px 12px;
+
+    color: #1729a3;
+    background: #f0f1ff;
+    border: none;
+    border-radius: 12px;
+
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* الشاشات المتوسطة */
+
+@media (max-width: 1150px) {
+    .site-header .header-content {
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .site-header .logo-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .site-header .logo-text {
+        font-size: 22px;
+    }
+
+    .site-header .main-nav {
+        gap: 2px;
+    }
+
+    .site-header .main-nav a {
+        padding: 12px 9px;
+        font-size: 14px;
+    }
+
+    .site-header .header-actions {
+        gap: 12px;
+    }
+
+    .site-header .notification-link {
+        font-size: 14px;
+    }
+
+    .site-header .account-button {
+        min-height: 46px;
+        padding: 10px 13px;
+        font-size: 14px;
+    }
+}
+
+/* الهواتف والأجهزة الصغيرة */
+
+@media (max-width: 760px) {
+    .site-header .header-content {
+        min-height: 76px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .site-header .logo-icon {
+        width: 43px;
+        height: 43px;
+    }
+
+    .site-header .logo-text {
+        font-size: 20px;
+    }
+
+    .site-header .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .site-header .main-nav {
+        display: none;
+        flex: 0 0 100%;
+        width: 100%;
+        order: 4;
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+    }
+
+    .site-header .main-nav.open {
+        display: flex;
+    }
+
+    .site-header .main-nav a {
+        justify-content: flex-start;
+        padding: 12px 14px;
+        font-size: 15px;
+    }
+
+    .site-header .header-actions {
+        margin-right: auto;
+        gap: 12px;
+    }
+
+    .site-header .notification-link {
+        font-size: 0;
+    }
+
+    .site-header .notification-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .site-header .account-button {
+        min-height: 42px;
+        padding: 9px 12px;
+        border-radius: 13px;
+        font-size: 14px;
+    }
+
+    .site-header .account-button svg {
+        width: 21px;
+        height: 21px;
+    }
+}
