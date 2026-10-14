@@ -4,19 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="theme-color" content="#f8f9ff">
-    <meta name="description" content="اكتشف الرسومات والفنون المختلفة وشارك إبداعك مع مجتمع الفنون.">
 
     <title>الرسومات | مجتمع الفنون</title>
+    <meta name="description" content="اكتشف الرسومات وشارك إبداعك مع مجتمع الفنون.">
 
-    <!-- التنسيقات المشتركة للموقع -->
     <link rel="stylesheet" href="css/style.css">
-
-    <!-- تنسيقات صفحة الرسومات -->
     <link rel="stylesheet" href="css/drawings.css">
 
-    <!-- أيقونات الصفحة -->
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -27,14 +22,11 @@
     <header class="site-header">
         <div class="container header-container">
 
-            <a href="index.html" class="site-logo" aria-label="الصفحة الرئيسية">
-                <span class="logo-icon">
-                    <i class="fa-solid fa-palette"></i>
-                </span>
+            <a href="index.html" class="site-logo">
+                <i class="fa-solid fa-palette" aria-hidden="true"></i>
                 <span>مجتمع الفنون</span>
             </a>
 
-            <!-- زر القائمة على الشاشات الصغيرة -->
             <button
                 class="menu-toggle"
                 id="menuToggle"
@@ -42,51 +34,36 @@
                 aria-label="فتح القائمة"
                 aria-expanded="false"
                 aria-controls="mainNav">
-
-                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-bars" aria-hidden="true"></i>
             </button>
 
-            <!-- روابط الموقع -->
             <nav class="main-nav" id="mainNav" aria-label="القائمة الرئيسية">
-
                 <a href="index.html">الرئيسية</a>
-
-                <a href="drawings.html"
-                   class="active"
-                   aria-current="page">
-                    الرسومات
-                </a>
-
+                <a href="drawings.html" class="active" aria-current="page">الرسومات</a>
                 <a href="artists.html">الفنانون</a>
-
                 <a href="communities.html">المجتمعات</a>
-
                 <a href="challenges.html">التحديات والألعاب</a>
-
             </nav>
 
-            <!-- الإشعارات والإعدادات وتسجيل الدخول -->
             <div class="header-actions">
 
-                <a href="notifications.html"
-                   class="icon-button notification-button"
-                   aria-label="الإشعارات"
-                   title="الإشعارات">
-
-                    <i class="fa-regular fa-bell"></i>
+                <a href="login.html" class="login-link" aria-label="تسجيل الدخول">
+                    <i class="fa-regular fa-user" aria-hidden="true"></i>
+                    <span>تسجيل الدخول</span>
                 </a>
 
                 <a href="settings.html"
                    class="icon-button settings-button"
                    aria-label="الإعدادات"
                    title="الإعدادات">
-
-                    <i class="fa-solid fa-gear"></i>
+                    <i class="fa-solid fa-gear" aria-hidden="true"></i>
                 </a>
 
-                <a href="login.html" class="login-link">
-                    <i class="fa-regular fa-user"></i>
-                    <span>تسجيل الدخول</span>
+                <a href="notifications.html"
+                   class="icon-button notification-button"
+                   aria-label="الإشعارات"
+                   title="الإشعارات">
+                    <i class="fa-regular fa-bell" aria-hidden="true"></i>
                 </a>
 
             </div>
@@ -94,33 +71,44 @@
     </header>
 
 
-    <!-- المحتوى الرئيسي -->
+    <!-- عنوان الصفحة -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+
+            <div class="page-hero-icon">
+                <i class="fa-regular fa-image" aria-hidden="true"></i>
+            </div>
+
+            <h1>اكتشف الرسومات</h1>
+
+            <p>
+                مساحة تجمع محبي الرسم والفنون، اكتشف أساليب جديدة
+                <br>
+                واستلهم أفكارًا تساعدك على تطوير موهبتك.
+            </p>
+
+        </div>
+    </section>
+
+
+    <!-- محتوى صفحة الرسومات -->
     <main class="drawings-page">
-
         <div class="container">
-
-            <!-- عنوان الصفحة -->
-            <section class="page-heading">
-
-                <div class="heading-icon">
-                    <i class="fa-solid fa-images"></i>
-                </div>
-
-                <h1>اكتشف الرسومات</h1>
-
-                <p>
-                    مساحة تجمع محبي الرسم والفنون، اكتشف أساليب جديدة
-                    واستلهم أفكارًا تساعدك على تطوير موهبتك.
-                </p>
-
-            </section>
-
 
             <!-- البحث والترتيب -->
             <section class="gallery-tools" aria-label="البحث والترتيب">
 
-                <div class="search-box">
+                <div class="sort-box">
+                    <label for="sortSelect">ترتيب الرسومات</label>
 
+                    <select id="sortSelect">
+                        <option value="default">الترتيب الأصلي</option>
+                        <option value="title-asc">الاسم من أ إلى ي</option>
+                        <option value="title-desc">الاسم من ي إلى أ</option>
+                    </select>
+                </div>
+
+                <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"
                        aria-hidden="true"></i>
 
@@ -128,369 +116,84 @@
                         type="search"
                         id="searchInput"
                         placeholder="ابحث عن رسمة أو فنان..."
-                        aria-label="البحث عن رسمة أو فنان">
-
-                </div>
-
-                <div class="sort-box">
-
-                    <label for="sortSelect">ترتيب الرسومات</label>
-
-                    <select id="sortSelect" aria-label="ترتيب الرسومات">
-
-                        <option value="default">الترتيب الأصلي</option>
-
-                        <option value="title-asc">الاسم من أ إلى ي</option>
-
-                        <option value="title-desc">الاسم من ي إلى أ</option>
-
-                    </select>
-
+                        aria-label="ابحث عن رسمة أو فنان">
                 </div>
 
             </section>
 
 
             <!-- تصنيفات الرسومات -->
-            <section class="gallery-filters" aria-label="تصنيفات الرسم">
+            <section class="gallery-filters" aria-label="تصنيفات الرسومات">
 
-                <button
-                    type="button"
-                    class="filter-chip active"
-                    data-filter="all"
-                    aria-pressed="true">
+                <button type="button"
+                        class="filter-chip active"
+                        data-filter="all"
+                        aria-pressed="true">
+                    <i class="fa-solid fa-border-all" aria-hidden="true"></i>
                     الكل
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-chip"
-                    data-filter="pencil"
-                    aria-pressed="false">
+                <button type="button"
+                        class="filter-chip"
+                        data-filter="pencil"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-pencil" aria-hidden="true"></i>
                     رسم بالقلم
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-chip"
-                    data-filter="watercolor"
-                    aria-pressed="false">
+                <button type="button"
+                        class="filter-chip"
+                        data-filter="watercolor"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-droplet" aria-hidden="true"></i>
                     ألوان مائية
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-chip"
-                    data-filter="oil"
-                    aria-pressed="false">
+                <button type="button"
+                        class="filter-chip"
+                        data-filter="oil"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-palette" aria-hidden="true"></i>
                     ألوان زيتية
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-chip"
-                    data-filter="digital"
-                    aria-pressed="false">
+                <button type="button"
+                        class="filter-chip"
+                        data-filter="digital"
+                        aria-pressed="false">
+                    <i class="fa-regular fa-image" aria-hidden="true"></i>
                     رسم رقمي
                 </button>
 
-                <button
-                    type="button"
-                    class="filter-chip"
-                    data-filter="other"
-                    aria-pressed="false">
+                <button type="button"
+                        class="filter-chip"
+                        data-filter="other"
+                        aria-pressed="false">
+                    <i class="fa-solid fa-shapes" aria-hidden="true"></i>
                     فنون أخرى
                 </button>
 
             </section>
 
 
-            <!-- تنبيه خاص بالصور التجريبية -->
-            <p class="demo-notice">
-                <i class="fa-solid fa-circle-info"
-                   aria-hidden="true"></i>
-
-                الصور التالية للمعاينة التجريبية لشكل الصفحة،
-                وليست منشورات حقيقية من أعضاء الموقع.
-            </p>
-
-
-            <!-- شبكة الرسومات -->
-            <section
-                class="art-grid"
-                id="artGrid"
-                aria-label="معرض الرسومات">
-
-                <!-- رسمة تجريبية 1 -->
-                <article
-                    class="art-card"
-                    data-category="pencil"
-                    data-title="رسم بالقلم"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
-                            alt="صورة فنية تجريبية للرسم"
-                            loading="lazy">
-
-                        <span class="skill-badge">مبتدئ</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">رسم بالقلم</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لعرض الأعمال الفنية.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-pencil"
-                                   aria-hidden="true"></i>
-                                رسم بالقلم
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- رسمة تجريبية 2 -->
-                <article
-                    class="art-card"
-                    data-category="watercolor"
-                    data-title="ألوان مائية"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
-                            alt="نموذج تجريبي لعمل فني بالألوان"
-                            loading="lazy">
-
-                        <span class="skill-badge">متوسط</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">ألوان مائية</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لعرض أساليب التلوين.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-droplet"
-                                   aria-hidden="true"></i>
-                                ألوان مائية
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- رسمة تجريبية 3 -->
-                <article
-                    class="art-card"
-                    data-category="oil"
-                    data-title="ألوان زيتية"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
-                            alt="نموذج تجريبي للوحة فنية"
-                            loading="lazy">
-
-                        <span class="skill-badge">محترف</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">ألوان زيتية</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لعرض اللوحات الفنية.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-palette"
-                                   aria-hidden="true"></i>
-                                ألوان زيتية
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- رسمة تجريبية 4 -->
-                <article
-                    class="art-card"
-                    data-category="digital"
-                    data-title="فن رقمي"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?auto=format&fit=crop&w=800&q=85"
-                            alt="نموذج تجريبي لعمل فني ملون"
-                            loading="lazy">
-
-                        <span class="skill-badge">متوسط</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">فن رقمي</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لعرض الرسم الرقمي.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-tablet-screen-button"
-                                   aria-hidden="true"></i>
-                                رسم رقمي
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- رسمة تجريبية 5 -->
-                <article
-                    class="art-card"
-                    data-category="other"
-                    data-title="فن تشكيلي"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=85"
-                            alt="نموذج تجريبي لفن تشكيلي"
-                            loading="lazy">
-
-                        <span class="skill-badge">محترف</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">فن تشكيلي</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لأحد أشكال الفن التشكيلي.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-shapes"
-                                   aria-hidden="true"></i>
-                                فنون أخرى
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
-
-                <!-- رسمة تجريبية 6 -->
-                <article
-                    class="art-card"
-                    data-category="pencil"
-                    data-title="تدريبات الرسم"
-                    data-artist="">
-
-                    <div class="art-image-wrap">
-
-                        <img
-                            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=85"
-                            alt="نموذج تجريبي لتدريبات الرسم"
-                            loading="lazy">
-
-                        <span class="skill-badge">مبتدئ</span>
-
-                    </div>
-
-                    <div class="art-card-content">
-
-                        <h2 class="art-title">تدريبات الرسم</h2>
-
-                        <p class="art-description">
-                            نموذج تجريبي لتوضيح شكل بطاقة الرسمة.
-                        </p>
-
-                        <div class="art-card-footer">
-
-                            <span class="art-category">
-                                <i class="fa-solid fa-pencil"
-                                   aria-hidden="true"></i>
-                                رسم بالقلم
-                            </span>
-
-                            <span class="demo-label">معاينة</span>
-
-                        </div>
-
-                    </div>
-                </article>
-
+            <!-- مساحة الأعمال الفنية: فارغة لحين إضافة أعمال حقيقية -->
+            <section class="art-grid"
+                     id="artGrid"
+                     aria-label="معرض الرسومات">
             </section>
 
 
-            <!-- رسالة عدم وجود نتائج -->
-            <div
-                class="empty-message"
-                id="emptyMessage"
-                role="status"
-                aria-live="polite"
-                hidden>
+            <!-- تظهر عند عدم وجود رسومات -->
+            <section class="empty-message" id="emptyMessage" role="status">
+                <i class="fa-regular fa-image" aria-hidden="true"></i>
 
-                <i class="fa-regular fa-face-frown"
-                   aria-hidden="true"></i>
+                <h2>لا توجد رسومات لعرضها حاليًا</h2>
 
-                <h2>لم نجد رسومات مطابقة</h2>
-
-                <p>جرّب البحث بكلمات مختلفة أو اختر تصنيفًا آخر.</p>
-
-            </div>
+                <p>
+                    ستكون هذه المساحة مخصصة لأعمال الفنانين
+                    عند إضافة الرسومات إلى المجتمع.
+                </p>
+            </section>
 
         </div>
     </main>
@@ -498,41 +201,33 @@
 
     <!-- خاتمة الموقع -->
     <footer class="site-footer">
-
         <div class="container footer-container">
 
-            <a href="index.html" class="footer-logo">
-                مجتمع الفنون
-            </a>
+            <div class="footer-brand">
+                <i class="fa-solid fa-palette" aria-hidden="true"></i>
 
-            <p>
-                مساحة تجمع الفنانين، وتفتح أبواب الإبداع للجميع.
-            </p>
-
-            <div class="footer-links">
-
-                <a href="index.html">الرئيسية</a>
-
-                <a href="settings.html">الإعدادات</a>
-
-                <a href="login.html">تسجيل الدخول</a>
-
+                <div>
+                    <h2>مجتمع الفنون</h2>
+                    <p>مساحة تجمع الفنانين وتفتح أبواب الإبداع للجميع.</p>
+                </div>
             </div>
 
+            <nav class="footer-links" aria-label="روابط إضافية">
+                <a href="index.html">الرئيسية</a>
+                <a href="settings.html">الإعدادات</a>
+                <a href="login.html">تسجيل الدخول</a>
+            </nav>
+
             <div class="footer-bottom">
-
                 <p>جميع الحقوق محفوظة لمجتمع الفنون.</p>
-
                 <span>DevRivo</span>
-
             </div>
 
         </div>
-
     </footer>
 
 
-    <!-- ملفات JavaScript الخارجية -->
+    <!-- ملفات JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/drawings.js"></script>
 
