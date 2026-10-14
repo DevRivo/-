@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>الفنانون | مجتمع الفنون</title>
+
+    <meta
+        name="description"
+        content="اكتشف الفنانين وتعرّف على أعمالهم وتابع رحلتهم الفنية في مجتمع الفنون."
+    >
+
+    <!-- التصميم المشترك لجميع الصفحات -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- تصميم صفحة الفنانين -->
+    <link rel="stylesheet" href="css/artists.css">
+</head>
+
+<body>
+
+    <!-- رأس الموقع: نفس الكود والترتيب المشترك -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="site-logo">
+                مجتمع الفنون
+            </a>
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">الرئيسية</a>
+                <a href="drawings.html">الرسومات</a>
+                <a href="artists.html" class="active" aria-current="page">الفنانون</a>
+                <a href="communities.html">المجتمعات</a>
+                <a href="challenges.html">التحديات والألعاب</a>
+            </nav>
+
+            <div class="header-actions">
+                <a href="notifications.html" class="notification-link">
+                    الإشعارات
+                </a>
+
+                <a href="login.html" class="btn btn-primary">
+                    حسابي
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- محتوى صفحة الفنانين -->
+    <main class="artists-page">
+
+        <!-- مقدمة الصفحة -->
+        <section class="artists-intro container">
+
+            <span class="section-label">مجتمع المبدعين</span>
+
+            <h1>اكتشف الفنانين</h1>
+
+            <p>
+                تعرّف على أصحاب المواهب، واكتشف أساليب فنية مختلفة،
+                وتابع الفنانين الذين يلهمونك لتطوير مهاراتك.
+            </p>
+
+        </section>
+
+        <!-- البحث عن الفنانين -->
+        <section class="artists-explorer container">
+
+            <div class="artists-toolbar">
+
+                <div class="artists-search">
+                    <label for="artistSearch">ابحث عن فنان</label>
+
+                    <input
+                        type="search"
+                        id="artistSearch"
+                        placeholder="اكتب اسم الفنان أو تخصصه..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="artists-filter">
+                    <label for="artistSpecialty">التخصص الفني</label>
+
+                    <select id="artistSpecialty">
+                        <option value="all">جميع التخصصات</option>
+                        <option value="traditional">الرسم التقليدي</option>
+                        <option value="digital">الرسم الرقمي</option>
+                        <option value="portrait">البورتريه</option>
+                        <option value="anime">الأنمي والمانجا</option>
+                        <option value="nature">رسم الطبيعة</option>
+                        <option value="calligraphy">الخط العربي</option>
+                        <option value="other">تخصصات أخرى</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <!-- أزرار التخصصات -->
+            <div class="artist-categories">
+
+                <button
+                    type="button"
+                    class="artist-category active"
+                    data-specialty="all"
+                    aria-pressed="true"
+                >
+                    الكل
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="traditional"
+                    aria-pressed="false"
+                >
+                    الرسم التقليدي
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="digital"
+                    aria-pressed="false"
+                >
+                    الرسم الرقمي
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="portrait"
+                    aria-pressed="false"
+                >
+                    البورتريه
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="anime"
+                    aria-pressed="false"
+                >
+                    الأنمي والمانجا
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="nature"
+                    aria-pressed="false"
+                >
+                    الطبيعة
+                </button>
+
+                <button
+                    type="button"
+                    class="artist-category"
+                    data-specialty="calligraphy"
+                    aria-pressed="false"
+                >
+                    الخط العربي
+                </button>
+
+            </div>
+
+            <!-- قائمة الفنانين -->
+            <div class="artists-results">
+
+                <div class="artists-results-heading">
+                    <h2>فنانو المجتمع</h2>
+
+                    <span id="artistsCount">0 فنان</span>
+                </div>
+
+                <div
+                    class="artists-grid"
+                    id="artistsGrid"
+                >
+                    <!-- ستظهر هنا حسابات الفنانين الحقيقية فقط -->
+                </div>
+
+                <!-- الحالة الفارغة -->
+                <div class="artists-empty" id="artistsEmpty">
+
+                    <div class="artists-empty-icon" aria-hidden="true">
+                        ♧
+                    </div>
+
+                    <h3 id="artistsEmptyTitle">
+                        كن أول فنان في مجتمعنا!
+                    </h3>
+
+                    <p id="artistsEmptyMessage">
+                        لا توجد حسابات فنانين منشورة هنا حتى الآن.
+                        أنشئ حسابك وابدأ رحلتك الفنية مع المجتمع.
+                    </p>
+
+                    <a href="login.html" class="btn btn-primary">
+                        إنشاء حساب
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- دعوة للانضمام -->
+        <section class="artists-join container">
+
+            <div class="artists-join-content">
+
+                <h2>موهبتك تستحق أن تُرى</h2>
+
+                <p>
+                    أنشئ ملفك الشخصي، وشارك أعمالك الفنية،
+                    واجعل الآخرين يتعرفون على أسلوبك وإبداعك.
+                </p>
+
+            </div>
+
+            <a href="login.html" class="btn btn-secondary">
+                انضم إلى الفنانين
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- تذييل الموقع -->
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                مجتمع يجمع الفنانين ويمنح الإبداع مساحة للنمو.
+            </p>
+
+            <a href="index.html" class="footer-home">
+                العودة إلى الرئيسية
+            </a>
+
+            <div class="footer-bottom">
+                <span>جميع الحقوق محفوظة</span>
+                <span class="site-credit">DevRivo</span>
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ملفات التفاعل المشتركة والخاصة بالصفحة -->
+    <script src="js/main.js" defer></script>
+    <script src="js/artists.js" defer></script>
+
+</body>
+
+</html>
