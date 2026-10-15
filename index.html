@@ -1,251 +1,522 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مجتمع الفنون</title>
 
-  <!-- ملف التصميم -->
-  <link rel="stylesheet" href="css/style.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="مجتمع الفنون، مساحة تجمع الفنانين العرب لمشاركة الرسومات وتطوير المواهب والتواصل مع محبي الفن.">
+
+    <title>مجتمع الفنون | شارك إبداعك</title>
+
+    <!-- خط الموقع -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ملف التنسيقات -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- ملف JavaScript -->
+    <script src="js/main.js" defer></script>
 </head>
+
 <body>
 
-  <!-- ========== رأس الموقع ========== -->
-  <header class="site-header">
-    <div class="container header-content">
+    <!-- رأس الموقع -->
+    <header class="site-header">
+        <div class="container header-content">
 
-      <!-- الشعار واسم الموقع -->
-      <a href="index.html" class="logo">
-        <img src="images/logo.png" alt="شعار مجتمع الفنون" class="logo-img">
-        <span class="logo-text">مجتمع الفنون</span>
-      </a>
+            <!-- شعار واسم الموقع -->
+            <a href="index.html" class="site-logo">
+                <span class="logo-icon" aria-hidden="true">✎</span>
+                <span>مجتمع الفنون</span>
+            </a>
 
-      <!-- روابط التنقل -->
-      <nav class="main-nav">
-        <a href="index.html" class="nav-link active">الرئيسية</a>
-        <a href="drawings.html" class="nav-link">الرسومات</a>
-        <a href="artists.html" class="nav-link">الفنانون</a>
-        <a href="communities.html" class="nav-link">المجتمعات</a>
-        <a href="challenges.html" class="nav-link">التحديات والألعاب</a>
-      </nav>
+            <!-- زر القائمة للموبايل -->
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="فتح القائمة"
+                aria-expanded="false"
+                aria-controls="mainNav">
 
-      <!-- أدوات الرأس: بحث وإشعارات وحساب وانضمام -->
-      <div class="header-tools">
-        <a href="drawings.html" class="tool-link" aria-label="بحث">🔍</a>
-        <a href="notifications.html" class="tool-link" aria-label="الإشعارات">🔔</a>
-        <a href="login.html" class="account-link">حسابي</a>
-        <a href="signup.html" class="btn btn-primary">انضم إلينا</a>
-      </div>
+                <span></span>
+                <span></span>
+                <span></span>
 
-    </div>
-  </header>
+            </button>
 
-  <main>
+            <!-- روابط الصفحات -->
+            <nav class="main-nav" id="mainNav">
 
-    <!-- ========== القسم الرئيسي ========== -->
-    <section class="hero">
-      <div class="container hero-content">
+                <a href="index.html" class="active" aria-current="page">
+                    الرئيسية
+                </a>
 
-        <div class="hero-text">
-          <h1>
-            مرحباً بك في
-            <span class="hero-title-colored">مجتمع الفنون</span>
-          </h1>
-          <p>
-            منصة تجمع الفنانين والرسامين من كل أنحاء العالم
-            لتبادل الإبداع، والتعلم، والمشاركة في مجتمع فني مميز.
-          </p>
+                <a href="drawings.html">
+                    الرسومات
+                </a>
 
-          <div class="hero-buttons">
-            <a href="drawings.html" class="btn btn-primary">استكشاف الرسومات</a>
-            <a href="artists.html" class="btn btn-outline">اكتشاف الفنانين</a>
-            <a href="signup.html" class="btn btn-outline">انضم إلينا</a>
-          </div>
-        </div>
+                <a href="artists.html">
+                    الفنانون
+                </a>
 
-        <div class="hero-image">
-          <img src="images/hero-art.png" alt="لوحة وفرش ولوحة ألوان">
-        </div>
+                <a href="communities.html">
+                    المجتمعات
+                </a>
 
-      </div>
-    </section>
+                <a href="challenges.html">
+                    التحديات والألعاب
+                </a>
 
-    <!-- ========== قسم المميزات ========== -->
-    <section class="features">
-      <div class="container">
-        <h2 class="section-title">ماذا يقدم لك مجتمع الفنون؟</h2>
+            </nav>
 
-        <div class="features-grid">
+            <!-- أزرار الرأس -->
+            <div class="header-actions">
 
-          <!-- بطاقة التعلم -->
-          <article class="feature-card">
-            <div class="feature-icon icon-learn">💡</div>
-            <h3>التعلم وتطوير المهارات</h3>
-            <p>احصل على نصائح وتدريبات لتطوير مهاراتك الفنية.</p>
-          </article>
+                <a href="notifications.html"
+                   class="notification-link"
+                   aria-label="الإشعارات">
 
-          <!-- بطاقة الرسومات -->
-          <article class="feature-card">
-            <div class="feature-icon icon-drawings">🖼️</div>
-            <h3>الرسومات</h3>
-            <p>تصفح الأعمال الفنية المتنوعة والمميزة.</p>
-          </article>
+                    <span aria-hidden="true">♧</span>
+                    <span class="notification-text">الإشعارات</span>
 
-          <!-- بطاقة الفنانين -->
-          <article class="feature-card">
-            <div class="feature-icon icon-artists">👥</div>
-            <h3>الفنانون</h3>
-            <p>اكتشف فنانين مميزين وتابع أعمالهم.</p>
-          </article>
+                </a>
 
-          <!-- بطاقة المجتمعات -->
-          <article class="feature-card">
-            <div class="feature-icon icon-communities">🫂</div>
-            <h3>المجتمعات</h3>
-            <p>انضم إلى مجتمعات فنية وتواصل مع فنانين مثلك.</p>
-          </article>
+                <a href="login.html" class="btn btn-primary">
+                    حسابي
+                </a>
 
-          <!-- بطاقة التحديات -->
-          <article class="feature-card">
-            <div class="feature-icon icon-challenges">🎮</div>
-            <h3>التحديات والألعاب</h3>
-            <p>شارك في تحديات فنية واختبر مهاراتك مع الآخرين.</p>
-          </article>
+            </div>
 
         </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- ========== قسم التحديات والألعاب ========== -->
-    <section class="challenges">
-      <div class="container challenges-content">
 
-        <div class="challenges-text">
-          <span class="section-label">التحديات الفنية</span>
-          <h2>اختبر مهاراتك وكن الأفضل</h2>
-          <p>
-            شارك في تحديات فنية متنوعة، من الرسم السريع إلى التحديات
-            المتخصصة، واربح مكافآت رقمية داخل الموقع.
-          </p>
-          <a href="challenges.html" class="btn btn-primary">استعرض التحديات</a>
+    <!-- المحتوى الرئيسي -->
+    <main>
+
+        <!-- القسم الترحيبي -->
+        <section class="hero-section">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hero-label">
+                        مساحتك الإبداعية
+                    </span>
+
+                    <h1>
+                        مرحبًا بك في
+                        <span>مجتمع الفنون</span>
+                    </h1>
+
+                    <p>
+                        مساحتك الإبداعية لعرض رسوماتك، وتطوير موهبتك،
+                        والتعرّف على فنانين يشاركونك الشغف بالفن.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="drawings.html" class="btn btn-primary">
+                            استكشف الرسومات
+                        </a>
+
+                        <a href="artists.html" class="btn btn-secondary">
+                            اكتشف الفنانين
+                        </a>
+
+                        <a href="signup.html" class="btn btn-outline">
+                            انضم إلينا
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- قسم مميزات الموقع -->
+        <section class="features-section">
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        اكتشف عالم الفن
+                    </span>
+
+                    <h2>
+                        ماذا يقدم لك مجتمع الفنون؟
+                    </h2>
+
+                    <p>
+                        كل ما تحتاجه لتشارك إبداعك وتتطور مع مجتمع من الفنانين.
+                    </p>
+
+                </div>
+
+
+                <div class="features-grid">
+
+                    <!-- بطاقة الرسومات -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon" aria-hidden="true">
+                            ✎
+                        </div>
+
+                        <h3>شارك رسوماتك</h3>
+
+                        <p>
+                            اعرض أعمالك الفنية وشارك أسلوبك وأفكارك مع الآخرين.
+                        </p>
+
+                        <a href="drawings.html" class="feature-link">
+                            استكشف الرسومات
+                            <span aria-hidden="true">←</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- بطاقة الفنانين -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon" aria-hidden="true">
+                            ♙
+                        </div>
+
+                        <h3>اكتشف الفنانين</h3>
+
+                        <p>
+                            تعرّف على الفنانين واكتشف أساليب فنية مختلفة.
+                        </p>
+
+                        <a href="artists.html" class="feature-link">
+                            اكتشف الفنانين
+                            <span aria-hidden="true">←</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- بطاقة المجتمعات -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon" aria-hidden="true">
+                            ◉
+                        </div>
+
+                        <h3>مجتمعات فنية</h3>
+
+                        <p>
+                            اجتمع مع أشخاص يشاركونك اهتماماتك وأفكارك الفنية.
+                        </p>
+
+                        <a href="communities.html" class="feature-link">
+                            تصفح المجتمعات
+                            <span aria-hidden="true">←</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- بطاقة التحديات -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon" aria-hidden="true">
+                            ☆
+                        </div>
+
+                        <h3>التحديات والألعاب</h3>
+
+                        <p>
+                            اختبر مهاراتك وشارك في أنشطة وتحديات فنية.
+                        </p>
+
+                        <a href="challenges.html" class="feature-link">
+                            اكتشف التحديات
+                            <span aria-hidden="true">←</span>
+                        </a>
+
+                    </article>
+
+
+                    <!-- بطاقة تطوير الموهبة -->
+                    <article class="feature-card">
+
+                        <div class="feature-icon" aria-hidden="true">
+                            ✧
+                        </div>
+
+                        <h3>طوّر موهبتك</h3>
+
+                        <p>
+                            اكتشف أفكارًا وأساليب جديدة تساعدك على تطوير رسمك.
+                        </p>
+
+                        <a href="drawings.html" class="feature-link">
+                            ابدأ الاستكشاف
+                            <span aria-hidden="true">←</span>
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- قسم التحديات الفنية -->
+        <section class="challenges-section">
+            <div class="container">
+
+                <div class="challenges-content">
+
+                    <div class="challenges-text">
+
+                        <span class="section-label">
+                            أطلق العنان لإبداعك
+                        </span>
+
+                        <h2>
+                            هل أنت مستعد للتحدي؟
+                        </h2>
+
+                        <p>
+                            جرّب أفكارًا جديدة، وطوّر مهاراتك،
+                            واكتشف طرقًا ممتعة للتفاعل مع الفنانين.
+                        </p>
+
+                        <a href="challenges.html" class="btn btn-primary">
+                            اكتشف التحديات
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- قسم المساعد الذكي سراج -->
+        <section class="siraj-section">
+            <div class="container">
+
+                <div class="siraj-content">
+
+                    <div class="siraj-text">
+
+                        <span class="section-label">
+                            مساعدك الإبداعي
+                        </span>
+
+                        <h2>
+                            سراج معك في رحلتك الفنية
+                        </h2>
+
+                        <p>
+                            تعرّف على سراج، مساعدك الذكي الذي يهدف
+                            إلى مساعدتك في استكشاف الأفكار الفنية
+                            والتعرّف على مهارات جديدة.
+                        </p>
+
+                        <a href="siraj.html" class="btn btn-primary">
+                            تعرّف على سراج
+                        </a>
+
+                    </div>
+
+                    <!-- مساحة مخصصة لعرض سراج لاحقًا -->
+                    <div class="siraj-visual"
+                         aria-label="مساحة المساعد سراج">
+
+                        <span class="siraj-symbol" aria-hidden="true">
+                            ✧
+                        </span>
+
+                        <p>سراج</p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- تذييل الموقع -->
+    <footer class="site-footer">
+        <div class="container">
+
+            <div class="footer-content">
+
+                <!-- تعريف الموقع -->
+                <div class="footer-column footer-about">
+
+                    <a href="index.html" class="footer-logo">
+                        <span aria-hidden="true">✎</span>
+                        مجتمع الفنون
+                    </a>
+
+                    <p>
+                        مساحة تجمع الفنانين وتمنح الإبداع
+                        مكانًا ينمو فيه.
+                    </p>
+
+                </div>
+
+
+                <!-- روابط الموقع -->
+                <div class="footer-column">
+
+                    <h4>روابط سريعة</h4>
+
+                    <ul>
+                        <li>
+                            <a href="index.html">الرئيسية</a>
+                        </li>
+
+                        <li>
+                            <a href="drawings.html">الرسومات</a>
+                        </li>
+
+                        <li>
+                            <a href="artists.html">الفنانون</a>
+                        </li>
+
+                        <li>
+                            <a href="communities.html">المجتمعات</a>
+                        </li>
+
+                        <li>
+                            <a href="challenges.html">التحديات والألعاب</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <!-- المساعدة -->
+                <div class="footer-column">
+
+                    <h4>المساعدة</h4>
+
+                    <ul>
+                        <li>
+                            <a href="about.html">من نحن</a>
+                        </li>
+
+                        <li>
+                            <a href="faq.html">الأسئلة الشائعة</a>
+                        </li>
+
+                        <li>
+                            <a href="contact.html">اتصل بنا</a>
+                        </li>
+                    </ul>
+
+                </div>
+
+
+                <!-- روابط التواصل الاجتماعي -->
+                <div class="footer-column">
+
+                    <h4>تابعنا</h4>
+
+                    <div class="social-links">
+
+                        <!-- يوتيوب -->
+                        <a href="https://www.youtube.com"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="يوتيوب">
+
+                            <svg viewBox="0 0 24 24"
+                                 width="26"
+                                 height="26"
+                                 aria-hidden="true">
+
+                                <path fill="#FF0000"
+                                      d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8Z"/>
+
+                                <path fill="#FFFFFF"
+                                      d="M9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/>
+
+                            </svg>
+
+                        </a>
+
+
+                        <!-- فيسبوك -->
+                        <a href="https://www.facebook.com"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="فيسبوك">
+
+                            <svg viewBox="0 0 24 24"
+                                 width="26"
+                                 height="26"
+                                 aria-hidden="true">
+
+                                <path fill="#1877F2"
+                                      d="M24 12a12 12 0 1 0-13.875 11.85v-8.39H7.078V12h3.047V9.36c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.49 0-1.956.925-1.956 1.874V12h3.328l-.532 3.46h-2.796v8.39A12.002 12.002 0 0 0 24 12Z"/>
+
+                            </svg>
+
+                        </a>
+
+
+                        <!-- واتساب -->
+                        <a href="https://www.whatsapp.com"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="واتساب">
+
+                            <svg viewBox="0 0 24 24"
+                                 width="26"
+                                 height="26"
+                                 aria-hidden="true">
+
+                                <path fill="#25D366"
+                                      d="M12.04 2a9.87 9.87 0 0 0-8.48 14.92L2 22l5.23-1.37A9.96 9.96 0 0 0 12.04 22 10 10 0 0 0 12.04 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.1.81.83-3.02-.2-.31a8.18 8.18 0 1 1 6.95 3.84Zm4.5-6.13c-.25-.12-1.47-.73-1.7-.81-.23-.08-.4-.12-.57.12-.17.25-.65.81-.8.98-.15.17-.3.19-.56.06-.25-.12-1.07-.39-2.04-1.23-.76-.67-1.27-1.5-1.42-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.87-.2-.49-.41-.42-.57-.43h-.49c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.28 3.79.6.26 1.07.42 1.44.54.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.19.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.3Z"/>
+
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- نهاية الفوتر -->
+            <div class="footer-bottom">
+
+                <p>
+                    © جميع الحقوق محفوظة لمجتمع الفنون
+                </p>
+
+                <span class="site-credit">
+                    DevRivo
+                </span>
+
+            </div>
+
         </div>
+    </footer>
 
-        <div class="challenges-image">
-          <img src="images/challenges-art.png" alt="كأس وفرشاة ويد ألعاب">
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ========== قسم المساعد الذكي ========== -->
-    <section class="assistant">
-      <div class="container assistant-content">
-
-        <div class="assistant-text">
-          <span class="section-label">المساعد الذكي</span>
-          <h2>سراج</h2>
-          <p>
-            مساعدك الفني الذكي، يساعدك في تعلم الرسم، وفهم الألوان،
-            وتحسين مهاراتك، واقتراح تدريبات مخصصة لك.
-          </p>
-          <a href="siraj.html" class="btn btn-secondary">ابدأ مع سراج</a>
-        </div>
-
-        <div class="assistant-image">
-          <img src="images/siraj.png" alt="سراج المساعد الفني الذكي">
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ========== تذييل الموقع ========== -->
-  <footer class="site-footer">
-    <div class="container footer-content">
-
-      <!-- اسم الموقع -->
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="images/logo.png" alt="شعار مجتمع الفنون" class="logo-img">
-          <span class="logo-text">مجتمع الفنون</span>
-        </a>
-        <p>معاً نصنع عالماً أكثر إبداعاً</p>
-      </div>
-
-      <!-- روابط الصفحات -->
-      <div class="footer-column">
-        <h4>روابط سريعة</h4>
-        <ul>
-          <li><a href="index.html">الرئيسية</a></li>
-          <li><a href="drawings.html">الرسومات</a></li>
-          <li><a href="artists.html">الفنانون</a></li>
-          <li><a href="communities.html">المجتمعات</a></li>
-          <li><a href="challenges.html">التحديات والألعاب</a></li>
-        </ul>
-      </div>
-
-      <!-- روابط المساعدة -->
-      <div class="footer-column">
-        <h4>مساعدة</h4>
-        <ul>
-          <li><a href="about.html">من نحن</a></li>
-          <li><a href="faq.html">الأسئلة الشائعة</a></li>
-          <li><a href="contact.html">تواصل معنا</a></li>
-        </ul>
-      </div>
-
-      <!-- روابط التواصل الاجتماعي -->
-<div class="footer-column">
-    <h4>تابعنا</h4>
-
-    <div class="social-links">
-
-        <!-- شعار يوتيوب -->
-        <a href="https://www.youtube.com"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="يوتيوب"
-           class="social-icon youtube-icon">
-
-            <svg viewBox="0 0 24 24"
-                 width="28"
-                 height="28"
-                 aria-hidden="true">
-                <path fill="#FF0000"
-                      d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8Z"/>
-
-                <path fill="#FFFFFF"
-                      d="M9.6 15.6V8.4L15.9 12l-6.3 3.6Z"/>
-            </svg>
-        </a>
-
-        <!-- فيسبوك -->
-        <a href="https://www.facebook.com"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="فيسبوك">📘</a>
-
-        <!-- واتساب -->
-        <a href="https://wa.me/"
-           target="_blank"
-           rel="noopener noreferrer"
-           aria-label="واتساب">💬</a>
-
-    </div>
-</div>
-      </div>
-
-    </div>
-
-    <!-- الحقوق واسم المطور -->
-    <div class="container footer-bottom">
-      <p>© 2026 مجتمع الفنون. جميع الحقوق محفوظة.</p>
-      <p>DevRivo</p>
-    </div>
-  </footer>
-
-  <!-- ملف الجافاسكريبت -->
-  <script src="js/main.js" defer></script>
 </body>
+
 </html>
