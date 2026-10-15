@@ -1,0 +1,650 @@
+/* ========== الإعدادات العامة ========== */
+
+/* ألوان الموقع في مكان واحد عشان يسهل تعديلها */
+:root {
+  --purple: #5b3fd9;
+  --purple-dark: #4a2fc0;
+  --blue: #3b6cf0;
+  --blue-light: #eaf0ff;
+  --purple-light: #f1ecff;
+  --text-dark: #22214a;
+  --text-gray: #5f6280;
+  --border: #e4e6f2;
+  --white: #ffffff;
+  --footer-bg: #25244f;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Tajawal", "Cairo", Tahoma, Arial, sans-serif;
+  background-color: var(--white);
+  color: var(--text-dark);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* الحاوية اللي بتخلي المحتوى في المنتصف */
+.container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========== الأزرار ========== */
+
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible,
+.tool-link:focus-visible,
+.account-link:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.btn-primary {
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--purple-dark);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.btn-outline:hover {
+  background-color: var(--purple-light);
+}
+
+.btn-secondary {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #2a57d6;
+}
+
+/* ========== رأس الموقع ========== */
+
+.site-header {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 70px;
+}
+
+/* الشعار */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+/* روابط التنقل */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  font-size: 15px;
+  color: var(--text-gray);
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--purple);
+}
+
+.nav-link.active {
+  color: var(--purple);
+  font-weight: bold;
+  border-bottom-color: var(--purple);
+}
+
+/* أدوات الرأس */
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tool-link {
+  font-size: 18px;
+  padding: 6px 8px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.tool-link:hover {
+  background-color: var(--purple-light);
+}
+
+.account-link {
+  font-size: 14px;
+  color: var(--text-dark);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  transition: background-color 0.2s;
+}
+
+.account-link:hover {
+  background-color: var(--purple-light);
+}
+
+.header-tools .btn {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+/* ========== القسم الرئيسي ========== */
+
+.hero {
+  background: linear-gradient(135deg, var(--blue-light), var(--purple-light));
+  padding: 60px 0;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.hero-title-colored {
+  display: block;
+  color: var(--purple);
+}
+
+.hero-text p {
+  font-size: 18px;
+  color: var(--text-gray);
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  max-width: 440px;
+  width: 100%;
+}
+
+/* ========== بطاقات المميزات ========== */
+
+.features {
+  padding: 70px 0;
+  background-color: var(--white);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+/* الخط الصغير تحت العنوان */
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: var(--purple);
+  border-radius: 4px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 28px 18px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(91, 63, 217, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(91, 63, 217, 0.15);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+/* لون خلفية مختلف لكل أيقونة */
+.icon-learn {
+  background-color: #e6f0ff;
+}
+
+.icon-drawings {
+  background-color: #f1e8ff;
+}
+
+.icon-artists {
+  background-color: #e4efff;
+}
+
+.icon-communities {
+  background-color: #ece8ff;
+}
+
+.icon-challenges {
+  background-color: #e8ecff;
+}
+
+.feature-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+/* ========== قسم التحديات ========== */
+
+.challenges {
+  padding: 20px 0 40px;
+}
+
+.challenges-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background-color: var(--purple-light);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.challenges-text {
+  flex: 1;
+}
+
+.section-label {
+  display: block;
+  font-size: 14px;
+  color: var(--blue);
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.challenges-text h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.challenges-text p {
+  color: var(--text-gray);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.challenges-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.challenges-image img {
+  max-width: 360px;
+  width: 100%;
+}
+
+/* ========== قسم سراج ========== */
+
+.assistant {
+  padding: 0 0 70px;
+}
+
+.assistant-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  background-color: var(--blue-light);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.assistant-text {
+  flex: 1;
+}
+
+.assistant-text h2 {
+  font-size: 32px;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+.assistant-text p {
+  color: var(--text-gray);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.assistant-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.assistant-image img {
+  max-width: 300px;
+  width: 100%;
+}
+
+/* ========== التذييل ========== */
+
+.site-footer {
+  background-color: var(--footer-bg);
+  color: #d8d9ee;
+  padding-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-brand .logo-text {
+  color: var(--white);
+}
+
+.footer-brand p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.footer-column h4 {
+  color: var(--white);
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.footer-column li {
+  margin-bottom: 6px;
+}
+
+.footer-column a {
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.footer-column a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+.footer-column a:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  font-size: 18px;
+  transition: background-color 0.2s;
+}
+
+.social-links a:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+  text-decoration: none;
+}
+
+/* الحقوق واسم DevRivo في آخر الموقع */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-size: 13px;
+}
+
+/* ========== تصميم التابلت ========== */
+
+@media (max-width: 992px) {
+  .header-content {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-content {
+    flex-wrap: wrap;
+  }
+}
+
+/* ========== تصميم الهاتف ========== */
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .hero-content,
+  .challenges-content,
+  .assistant-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .challenges-content,
+  .assistant-content {
+    padding: 28px 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .hero-text p,
+  .challenges-text p,
+  .assistant-text p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-brand .logo {
+    justify-content: center;
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-tools {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .header-tools .btn {
+    width: auto;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+  }
